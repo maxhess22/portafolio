@@ -1,0 +1,29 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+.navbar {
+    background: #295565;
+}
+img {
+    object-fit: cover;
+    max-width: 150px;
+    
+}
+
+.offcanvas {
+    background: #295565;
+    color: aliceblue;
+    
+}
+main .container-fluid{
+    background-color:#9dcfe2;
+    height: 100vh;
+}
+.titulo {
+    font-size: 2rem;
+    text-align: center;
+}
