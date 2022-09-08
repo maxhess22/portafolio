@@ -22,7 +22,7 @@ function incrementarNumero() {
 
 function disminuirNumero() {
     
-    if(resultado > 0){
+    if(resultado > 0) {
         resultado = resultado - 1;
         h1.textContent= `${resultado}`; 
     }    
