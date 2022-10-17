@@ -1,0 +1,65 @@
+mixin caja-proyecto(Nombre,url,img) 
+    .caja__proyecto
+        .caja__proyecto-titulo
+            h2.Nombre= Nombre
+        img(src= img)
+        button(href= " url " class = "button-saber") Ver repositorio git
+        a(href= url class = "button-saber" target="_blank") Ver pagina
+
+-var paginasWeb = ["https://cafacorp.com/", "https://maxhess22.github.io/proyectoGoogle-clone/", "https://maxhess22.github.io/MobileFirst-Platzi","https://maxhess22.github.io/proyecto-grid.github.io"]
+-var repositorios = ["https://github.com/maxhess22/proyectoGoogle-clone"]
+-var imagenes = ["../img/cafacorp.png", "../img/pokegrid.png", "../img/batabit.png", "../img/google.png"]
+
+
+
+
+
+
+
+
+
+
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="../css/dist/global.css")
+        title Portafolio Hess
+    body
+        header.hero
+            .hero__image
+            .hero__contenido
+                h1 Acerca de mi
+                p Estudiante de ing. en imformatica finalizando su carrera, desarrollador front-end junior y estudiante de platzi en mis tiempos libres.
+            
+        main.main
+            .skills
+                h2 Dev Skills 
+                    ol
+                        li html
+                        li css
+                        li JavaScript
+                        li Sass
+                        li Pug
+                        li React js
+            h1 Proyectos
+            .caja   
+                +caja-proyecto("cafacorp",  paginasWeb[0], imagenes[0])
+                +caja-proyecto("Pokegrid", paginasWeb[3], imagenes[1])
+                +caja-proyecto("batabit", paginasWeb[2], imagenes[2])
+                +caja-proyecto("Google-Clone", paginasWeb[1], imagenes[3])
+        footer.footer
+            .footer__contacto
+                ul
+                    li 
+                       a(href="#") Linkedin
+                    li
+                        a(href="#") Correo
+                    li 
+                        a(href="#") Github
+            .footer__derechos
+                p @Copyright Max Hess 2022
+        
