@@ -7,10 +7,9 @@
 }
 
 h1,h2,h3{
-    font-family:'Times New Roman', Times, serif ;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
     color: white;
     text-align: center;
-   
 }
 
 $color-primario:#172c3f;
@@ -22,20 +21,80 @@ $complementario: #321a08;
 
 
 
+
 body {
     background-color: $color-primario;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
 
-.skills{
-    width: 85%;
+
+@keyframes typing {
+    from { width: 0;}
+}
+@keyframes blink {
+    50% { border-color: transparent;}
+}
+
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    padding: 32px 16px;
+    color: $color-primario-soft;
+    line-height: 24px;
+    &__image{
+        img{
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;  
+        }  
+    }
+    &__contenido{
+       p {
+            font-family: monospace;
+            font-size: 18px;
+            white-space: nowrap;
+            border-right: 3px solid white;
+            width: 30ch;
+            overflow: hidden;
+            animation: typing 2s steps(30),blink .5s infinite step-end alternate;
+       }
+        
+      
+    }
+}
+
+
+
+
+
+
+
+.skills {
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
     margin: 32px auto;
+    padding: 32px 0;
     background-color: $color-primario-soft;
-    border-radius: 20px;
+   
     text-align: center;
-    
     ol{
         list-style: none;
     }
+    img {
+        width: 48px;
+        height: 48px;
+    }
+    h2 {
+        padding-bottom: 32px ;
+    }
+
 }
 
 
@@ -80,6 +139,11 @@ body {
     border: none;
     border-radius: 8px;
 }
+.button-disabled {
+    padding: 8px 5px;
+    opacity: 0;
+}
+
 
 
 
@@ -90,8 +154,8 @@ body {
     justify-content: center;
     padding: 32px 0;
     margin-top: 64px;
-    position: relative;
-    bottom: 0;
+    margin-bottom: 0;
+  
     background: $color-secundario;
     width: 100%;
     border-radius: 20px 20px 0 0;

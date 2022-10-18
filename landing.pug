@@ -1,14 +1,19 @@
-mixin caja-proyecto(Nombre,url,img) 
+mixin caja-proyecto(Nombre, img , urlo, condicion, url, clase) 
     .caja__proyecto
         .caja__proyecto-titulo
             h2.Nombre= Nombre
         img(src= img)
-        button(href= " url " class = "button-saber") Ver repositorio git
+        a(href=  urlo class = clase disabled= condicion target="_blank") Ver repositorio git
         a(href= url class = "button-saber" target="_blank") Ver pagina
 
+
+
+mixin boton
+    button hola mundo
+
 -var paginasWeb = ["https://cafacorp.com/", "https://maxhess22.github.io/proyectoGoogle-clone/", "https://maxhess22.github.io/MobileFirst-Platzi","https://maxhess22.github.io/proyecto-grid.github.io"]
--var repositorios = ["https://github.com/maxhess22/proyectoGoogle-clone"]
--var imagenes = ["../img/cafacorp.png", "../img/pokegrid.png", "../img/batabit.png", "../img/google.png"]
+-var repositorios = ["https://github.com/maxhess22/proyectoGoogle-clone", "https://github.com/maxhess22/proyecto-grid.github.io", "https://github.com/maxhess22/MobileFirst-Platzi"]
+-var imagenes = ["../img/cafacorp.png", "../img/pokegrid.png", "../img/batabit.png", "../img/google.png","../img/perfil.jpg", "../img/react.png"]
 
 
 
@@ -21,7 +26,7 @@ mixin caja-proyecto(Nombre,url,img)
 
 
 doctype html
-html(lang="en")
+html(lang="es")
     head
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
@@ -31,26 +36,34 @@ html(lang="en")
     body
         header.hero
             .hero__image
+                img(src= imagenes[4], alt="")
             .hero__contenido
-                h1 Acerca de mi
-                p Estudiante de ing. en imformatica finalizando su carrera, desarrollador front-end junior y estudiante de platzi en mis tiempos libres.
+                h1 Max Hess
+                p  Desarrollador Front End React
+            
             
         main.main
             .skills
-                h2 Dev Skills 
-                    ol
-                        li html
-                        li css
-                        li JavaScript
-                        li Sass
-                        li Pug
-                        li React js
-            h1 Proyectos
+                h2 Tecnologias
+                img(src="../img/html.png", alt="html" title= "html")
+                img(src="../img/css.png", alt="")
+                img(src="../img/Javascript.png", alt="")
+                img(src="../img/sass.png", alt="")
+                img(src="../img/git.png", alt="")
+                img(src="../img/bootstrap.png", alt="")
+                img(src= imagenes[5], alt="")
+                img(src="../img/wordpress.png", alt="")
+                
+                
+                
+            h2 Proyectos
             .caja   
-                +caja-proyecto("cafacorp",  paginasWeb[0], imagenes[0])
-                +caja-proyecto("Pokegrid", paginasWeb[3], imagenes[1])
-                +caja-proyecto("batabit", paginasWeb[2], imagenes[2])
-                +caja-proyecto("Google-Clone", paginasWeb[1], imagenes[3])
+                
+                +caja-proyecto("Google-clone", imagenes[3], repositorios[0], false,paginasWeb[1], "button-saber")
+                +caja-proyecto("Pokegrid", imagenes[1], repositorios[1], false,paginasWeb[3], "button-saber")
+                +caja-proyecto("Google-clone", imagenes[2], repositorios[2], false,paginasWeb[2], "button-saber")
+                +caja-proyecto("CafaCorp", imagenes[0], " ", true, paginasWeb[0], "button-disabled")
+    
         footer.footer
             .footer__contacto
                 ul
