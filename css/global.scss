@@ -119,7 +119,7 @@ body {
         padding: 16px 32px;
         position: relative;
         border-radius: 8px;
-        h2{
+        h4{
             text-align: center;
             position: absolute;
             top: -20px;
@@ -127,6 +127,7 @@ body {
             right: 0;
             padding:  8px 0;
             border-radius: 20px 20px 0 0;
+            color: white;
             background-color: darkslategray;
         }
         img {
