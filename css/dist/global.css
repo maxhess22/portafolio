@@ -31,8 +31,10 @@ body {
 }
 .hero {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 32px;
   padding: 32px 16px;
   color: #4f6378;
@@ -42,6 +44,9 @@ body {
   width: 100px;
   height: 100px;
   border-radius: 100%;
+}
+.hero__contenido h1 {
+  line-height: 30px;
 }
 .hero__contenido p {
   font-family: monospace;
@@ -54,13 +59,12 @@ body {
 }
 
 .skills {
-  margin: auto;
   justify-content: center;
   align-items: center;
   gap: 16px;
   width: 100%;
   margin: 32px auto;
-  padding: 32px 0;
+  padding: 32px 36px;
   background-color: #4f6378;
   text-align: center;
 }
