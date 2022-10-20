@@ -104,7 +104,6 @@ body {
   max-width: 250px;
   background-color: #4f6378;
   justify-content: center;
-  gap: 16px;
   position: relative;
   border-radius: 8px;
 }
