@@ -1,10 +1,11 @@
 mixin caja-proyecto(Nombre, img , urlo, condicion, url, clase) 
     .caja__proyecto
+        img(src= img)
+        
         .caja__proyecto-titulo
             h4.Nombre= Nombre
-        img(src= img)
-        a(href=  urlo class = clase disabled= condicion target="_blank") Ver repositorio git
-        a(href= url class = "button-saber" target="_blank") Ver pagina
+            a(href=  urlo class = clase disabled= condicion target="_blank") Ver repositorio Git
+            a(href= url class = "button-saber" target="_blank") Ver pagina
 
 -var paginasWeb = ["https://cafacorp.com/", "https://maxhess22.github.io/proyectoGoogle-clone/", "https://maxhess22.github.io/MobileFirst-Platzi","https://maxhess22.github.io/proyecto-grid.github.io"]
 -var repositorios = ["https://github.com/maxhess22/proyectoGoogle-clone", "https://github.com/maxhess22/proyecto-grid.github.io", "https://github.com/maxhess22/MobileFirst-Platzi"]
