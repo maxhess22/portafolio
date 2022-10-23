@@ -1,0 +1,39 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    padding: 32px 16px;
+    color: whitesmoke;
+    line-height: 24px;
+    &__image{
+        img{
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;  
+        }  
+    }
+    &__contenido{
+        h1{
+            line-height: 30px;
+        }
+        p {
+            font-family: monospace;
+            font-size: 18px;
+            white-space: nowrap;
+            border-right: 3px solid white;
+            width: 30ch;
+            overflow: hidden;
+            animation: typing 2s steps(30),blink .5s infinite step-end alternate;
+       } 
+    }
+}
+
+@keyframes typing {
+    from { width: 0;}
+}
+@keyframes blink {
+    50% { border-color: transparent;} 
+}

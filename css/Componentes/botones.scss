@@ -1,0 +1,13 @@
+.button-saber{
+    text-decoration: none;
+    text-align: center;
+    background-color: $color-primario-soft;
+    color: white;
+    padding: 8px 5px;
+    border: 1px solid whitesmoke;
+    border-radius: 8px;
+}
+.button-disabled {
+    padding: 8px 5px;
+    opacity: 0;
+}

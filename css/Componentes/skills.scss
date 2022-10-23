@@ -1,0 +1,22 @@
+.skills {
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    margin: 32px auto;
+    padding: 32px 36px;
+    background-color: $color-primario-soft;
+   
+    text-align: center;
+    ol{
+        list-style: none;
+    }
+    img {
+        width: 48px;
+        height: 48px;
+    }
+    h2 {
+        padding-bottom: 32px ;
+    }
+
+}
