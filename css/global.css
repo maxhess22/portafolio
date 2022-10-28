@@ -54,15 +54,12 @@ h1, h2, h3 {
 .skills {
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 500px;
   width: 100%;
   margin: 32px auto;
-  padding: 32px 36px;
+  padding: 32px;
   background-color: #4f6378;
   text-align: center;
-}
-.skills ol {
-  list-style: none;
 }
 .skills img {
   width: 48px;
@@ -158,4 +155,9 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
 }
