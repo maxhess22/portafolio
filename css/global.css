@@ -46,9 +46,9 @@ h1, h2, h3 {
   font-size: 18px;
   white-space: nowrap;
   border-right: 3px solid white;
-  width: 30ch;
+  width: 24ch;
   overflow: hidden;
-  animation: typing 2s steps(30), blink 0.5s infinite step-end alternate;
+  animation: typing 2s steps(24), blink 0.5s infinite step-end alternate;
 }
 
 @keyframes typing {

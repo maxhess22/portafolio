@@ -5,7 +5,7 @@
 let lista = ["uno", "dos", "tres"];
 function include() {
     
-    if (lista.includes("uno")) {
+    if (lista.includes("max")) {
         return console.log("si esta el numero");
 
 
@@ -14,5 +14,7 @@ function include() {
     }
 }
 
+include()
 
-export {include, lista};
+const caja = document.getElementsByClassName("caja__proyecto")
+caja.style
