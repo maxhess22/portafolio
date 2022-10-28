@@ -13,12 +13,16 @@
     &__contacto{
         color: white;
         min-width: 230px;
+      
         ul{
             list-style: none;
         }
         a {
             text-decoration: none;
             color: white;
+        }
+        a:hover{
+            text-decoration: underline;
         }
     } 
     &__derechos{

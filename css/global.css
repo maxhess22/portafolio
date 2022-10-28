@@ -22,6 +22,16 @@ h1, h2, h3 {
     translate: 0 0;
   }
 }
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
 .hero {
   display: flex;
   flex-direction: column;
@@ -51,16 +61,6 @@ h1, h2, h3 {
   animation: typing 2s steps(24), blink 0.5s infinite step-end alternate;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-}
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
 .skills {
   justify-content: center;
   align-items: center;
@@ -152,6 +152,9 @@ h1, h2, h3 {
 .footer__contacto a {
   text-decoration: none;
   color: white;
+}
+.footer__contacto a:hover {
+  text-decoration: underline;
 }
 .footer__derechos {
   display: flex;

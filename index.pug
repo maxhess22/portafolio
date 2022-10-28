@@ -12,21 +12,21 @@ html(lang="es")
         main.main
             .skills
                 h2 Tecnologias
-                img(src="./img/html.svg", alt="html" title= "html")
-                img(src="./img/css.svg", alt="")
-                img(src="./img/Javascript.svg", alt="")
-                img(src="./img/sass.svg", alt="")
-                img(src="./img/git.svg", alt="")
-                img(src="./img/bootstrap.svg", alt="")
-                img(src= "./img/react.svg", alt="")
-                img(src="./img/wordpress.svg", alt="" class ="icon")
+                img(src="./img/html.svg", alt="Logo de html5" title= )
+                img(src="./img/css.svg", alt="Logo de css3")
+                img(src="./img/Javascript.svg", alt="Logo de JavaScript")
+                img(src="./img/sass.svg", alt="Logo de sass")
+                img(src="./img/git.svg", alt="Logo de GitHub")
+                img(src="./img/bootstrap.svg", alt="Logo de Bootstrap")
+                img(src= "./img/react.svg", alt="Logo de React js")
+                img(src="./img/wordpress.svg", alt="Logo de WordPress")
                 img(src= imagenes[6], alt="")
             h2 Proyectos
             .caja   
                 +caja-proyecto("Google-clone", imagenes[3], repositorios[0], false,paginasWeb[1], "button-saber")
                 +caja-proyecto("Pokegrid", imagenes[1], repositorios[1], false, paginasWeb[3], "button-saber")
                 +caja-proyecto("BataBit", imagenes[2], repositorios[2], false,paginasWeb[2], "button-saber")
-                +caja-proyecto("CafaCorp", imagenes[0], "", true, paginasWeb[0], "button-disabled")
+                +caja-proyecto("CafaCorp", imagenes[0],"", true, paginasWeb[0], "button-disabled")
         include ./Componentes/footer.pug    
         script(src="./Js/include.js") 
         
