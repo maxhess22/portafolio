@@ -12,6 +12,16 @@ h1, h2, h3 {
   text-align: center;
 }
 
+@keyframes aparicion {
+  0% {
+    opacity: 0.3;
+    translate: 0 30px;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
 .hero {
   display: flex;
   flex-direction: column;
@@ -75,6 +85,7 @@ h1, h2, h3 {
   justify-content: center;
   gap: 32px;
   margin: 54px;
+  animation: aparicion 2s;
 }
 .caja__proyecto {
   display: flex;
