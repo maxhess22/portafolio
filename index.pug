@@ -12,7 +12,7 @@ html(lang="es")
         main.main
             .skills
                 h2 Tecnologias
-                img(src="./img/html.svg", alt="Logo de html5" title= )
+                img(src="./img/html.svg", alt="Logo de html5")
                 img(src="./img/css.svg", alt="Logo de css3")
                 img(src="./img/Javascript.svg", alt="Logo de JavaScript")
                 img(src="./img/sass.svg", alt="Logo de sass")
@@ -27,6 +27,9 @@ html(lang="es")
                 +caja-proyecto("Pokegrid", imagenes[1], repositorios[1], false, paginasWeb[3], "button-saber")
                 +caja-proyecto("BataBit", imagenes[2], repositorios[2], false,paginasWeb[2], "button-saber")
                 +caja-proyecto("CafaCorp", imagenes[0],"", true, paginasWeb[0], "button-disabled")
+                +caja-proyecto("Contador React", imagenes[7],repositorios[3], true, paginasWeb[4], "button-saber")
+                
+
         include ./Componentes/footer.pug    
         script(src="./Js/include.js") 
         
