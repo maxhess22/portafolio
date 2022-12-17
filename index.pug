@@ -20,14 +20,16 @@ html(lang="es")
                 img(src="./img/bootstrap.svg", alt="Logo de Bootstrap")
                 img(src= "./img/react.svg", alt="Logo de React js")
                 img(src="./img/wordpress.svg", alt="Logo de WordPress")
-                img(src= imagenes[6], alt="")
+                img(src= imagenes[6], alt="Logo de pug")
             h2 Proyectos
-            .caja   
-                +caja-proyecto("Google-clone", imagenes[3], repositorios[0], false,paginasWeb[1], "button-saber")
-                +caja-proyecto("Pokegrid", imagenes[1], repositorios[1], false, paginasWeb[3], "button-saber")
-                +caja-proyecto("BataBit", imagenes[2], repositorios[2], false,paginasWeb[2], "button-saber")
-                +caja-proyecto("CafaCorp", imagenes[0],"", true, paginasWeb[0], "button-disabled")
+            .caja
+                +caja-proyecto("Calculadora React", imagenes[7], repositorios[3], true, paginasWeb[5],"button-saber")
                 +caja-proyecto("Contador React", imagenes[7],repositorios[3], true, paginasWeb[4], "button-saber")
+                +caja-proyecto("Google-clone", imagenes[3], repositorios[0], true,paginasWeb[1], "button-saber")
+                +caja-proyecto("Pokegrid", imagenes[1], repositorios[1], true, paginasWeb[3], "button-saber")
+                +caja-proyecto("BataBit", imagenes[2], repositorios[2], true, paginasWeb[2], "button-saber")
+                +caja-proyecto("CafaCorp", imagenes[0],"", false, paginasWeb[0], "button-disabled")
+                
                 
 
         include ./Componentes/footer.pug    

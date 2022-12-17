@@ -1,9 +1,12 @@
 .caja{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(250px, 275px));
+    grid-auto-rows: auto;
     gap: 32px;
-    margin: 54px;
+    max-width: 932px;
+    justify-content: center;
+    margin: 32px auto;
+
     &__proyecto{
         display: flex;
         flex-direction: column;
@@ -24,6 +27,7 @@
             object-fit: fill;
             border-radius: 8px 8px 0 0 ;
             height: 195px;
+            margin-top: 0;
         }
         &-titulo {
             display: flex;

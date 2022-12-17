@@ -7,7 +7,14 @@
     border: 1px solid whitesmoke;
     border-radius: 8px;
 }
+
 .button-disabled {
     padding: 8px 5px;
     opacity: 0;
+}
+@media screen and (hover:hover) {
+    .button-saber:hover{
+        background-color: lightseagreen;
+        border: none;
+    }
 }
