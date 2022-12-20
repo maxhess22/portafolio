@@ -193,7 +193,7 @@ h1, h2, h3 {
 @media screen and (hover: hover) {
   .button-saber:hover {
     background-color: lightseagreen;
-    border: none;
+    border: 1px solid lightseagreen;
   }
 }
 .footer {
