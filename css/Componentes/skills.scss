@@ -1,9 +1,9 @@
 .skills {
+
     justify-content: center;
     align-items: center;
-    gap: 500px;
     width: 100%;
-    margin: 32px auto;
+    margin: 48px auto;
     padding: 32px;
     background-color: $color-primario-soft;
     text-align: center;
@@ -13,6 +13,11 @@
     }
     h2 {
         padding-bottom: 32px ;
+    }
+    &-img{
+        display: flex;
+        gap: 16px;
+        justify-content: center;
     }
 
 }
