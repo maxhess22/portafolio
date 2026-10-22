@@ -168,7 +168,11 @@ export const site = {
     },
     {
       name: "Interfaz",
-      items: ["React", "SvelteKit", "Tailwind"],
+      items: ["React", "SvelteKit", "Tailwind", "Bootstrap", "jQuery", "DataTables"],
+    },
+    {
+      name: "Backend",
+      items: ["Laravel", "Slim", "Django", "FastAPI", "Gin"],
     },
     {
       name: "Datos",

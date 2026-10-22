@@ -29,8 +29,6 @@ const banned = [
   "contador",
   "proyectogoogle",
   "mobilefirst",
-  "laravel",
-  "bootstrap",
   "vue",
   "7341",
   "+56",
