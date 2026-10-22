@@ -79,7 +79,7 @@ html(lang="es-CL")
               p= featured.note
             .project__aside
               +chips(featured.stack)
-              +todo(featured.todo.label, featured.todo.url)
+              +button-external(featured.link.url, "primary")= featured.link.label
 
           .project-list__aside
             each project in projects

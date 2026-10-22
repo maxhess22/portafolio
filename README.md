@@ -63,7 +63,6 @@ Hasta ahora el sitio se publicaba desde la raíz del repositorio en GitHub Pages
 
 ## Pendiente para Max
 
-- Confirmar la URL pública de NEXTFLOW y reemplazar `https://TODO-confirmar-url-de-nextflow` en `src/data/site.js`.
 - Confirmar las demos de UI Lab Fase Cero y Biblioteca de Ajedrez. Los repos son privados; los placeholders son `https://TODO-confirmar-url-de-ui-lab` y `https://TODO-confirmar-url-de-biblioteca-ajedrez`.
 - Crear el proyecto de Firebase, reemplazar `TODO-firebase-project-id` y cargar el secreto.
 - El PDF de `public/cv/CV_Max_Hess_Fullstack.pdf` es el currículum adjunto. El sitio no muestra el teléfono en ninguna página. Si quieres un PDF sin teléfono, reemplaza ese archivo.

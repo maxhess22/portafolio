@@ -111,9 +111,9 @@ export const site = {
     ],
     stack: ["React", "Vite", "Firebase Hosting", "PHP"],
     note: "El front está hecho con React y Vite, publicado en Firebase Hosting. La API está en PHP.",
-    todo: {
-      label: "Demo pública",
-      url: "https://TODO-confirmar-url-de-nextflow",
+    link: {
+      label: "Visitar nextflow.cl",
+      url: "https://nextflow.cl",
     },
   },
   projects: [

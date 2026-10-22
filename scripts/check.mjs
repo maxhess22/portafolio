@@ -50,7 +50,7 @@ const required = [
   "Duoc UC",
   "NEXTFLOW",
   "Lorenzo",
-  "TODO-confirmar-url-de-nextflow",
+  "https://nextflow.cl",
   "TODO-confirmar-url-de-ui-lab",
   "TODO-confirmar-url-de-biblioteca-ajedrez",
   "Tarjeta Vecino",
@@ -93,7 +93,8 @@ const allowed = (href) =>
   href.startsWith("/favicon") ||
   href === "mailto:ma.hessalvarez@gmail.com" ||
   href === "https://www.linkedin.com/in/max-felipe-hess-alvarez-37414b1bb/" ||
-  href === "https://github.com/maxhess22";
+  href === "https://github.com/maxhess22" ||
+  href === "https://nextflow.cl";
 
 for (const href of hrefs) {
   if (!allowed(href)) fail(`Enlace no permitido: ${href}`);
