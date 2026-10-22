@@ -481,7 +481,6 @@
   display: grid;
   justify-items: start;
   gap: var(--rhythm-block);
-  max-width: var(--measure);
 }
 
 .contact-email {
@@ -528,14 +527,4 @@
   gap: var(--rhythm-copy);
   max-width: var(--measure);
   padding-block: var(--rhythm-section);
-}
-
-@media (min-width: 48rem) {
-  .project--featured {
-    grid-template-columns: minmax(0, 1.4fr) minmax(var(--layout-side), 0.8fr);
-  }
-
-  .project--featured::before {
-    grid-column: 1 / -1;
-  }
 }

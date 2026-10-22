@@ -81,13 +81,14 @@ html(lang="es-CL")
               +chips(featured.stack)
               +todo(featured.todo.label, featured.todo.url)
 
-          each project in projects
-            article.project
-              .project__body
-                h3= project.name
-                p= project.summary
-                +chips(project.stack)
-                +todo(project.todo.label, project.todo.url)
+          .project-list__aside
+            each project in projects
+              article.project
+                .project__body
+                  h3= project.name
+                  p= project.summary
+                  +chips(project.stack)
+                  +todo(project.todo.label, project.todo.url)
 
           article.project.project--wide
             .project__body
