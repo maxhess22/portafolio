@@ -165,19 +165,23 @@
 
 .hero__grid {
   display: grid;
-  gap: var(--space-6);
-  min-width: 0;
-}
-
-.hero__copy {
-  display: grid;
   justify-items: start;
   gap: var(--rhythm-copy);
   min-width: 0;
 }
 
+.hero__intro,
+.hero__copy {
+  display: grid;
+  justify-items: start;
+  gap: var(--rhythm-copy);
+  width: 100%;
+  min-width: 0;
+}
+
 .portrait-frame {
-  width: min(100%, var(--layout-photo));
+  width: clamp(10rem, 48vw, 13.75rem);
+  max-width: 100%;
   justify-self: start;
   min-width: 0;
 }
@@ -188,19 +192,26 @@
   aspect-ratio: 1;
   height: auto;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
   border: var(--border-width) solid var(--color-photo-edge);
   border-radius: var(--radius-photo);
   background: var(--color-bg-elevated);
   box-shadow: var(--shadow-photo);
 }
 
+.hero h1 {
+  max-width: 100%;
+  font-size: clamp(2rem, 1.35rem + 3vw, 3.75rem);
+}
+
 .hero__role {
   margin: 0;
+  max-width: 100%;
   color: var(--color-fg);
   font-family: var(--font-mono);
   font-size: var(--text-lead);
   line-height: var(--leading-tight);
+  text-wrap: balance;
 }
 
 .hero__caret {
@@ -229,15 +240,35 @@
 
 .hero .actions {
   flex-direction: column;
+  flex-wrap: nowrap;
   align-items: stretch;
   justify-content: flex-start;
-  width: min(100%, 18rem);
+  width: 100%;
+  max-width: 100%;
+  gap: var(--space-3);
+}
+
+.hero .actions .btn {
+  width: 100%;
+  min-height: var(--touch-min);
+  white-space: nowrap;
+}
+
+@media (min-width: 48rem) {
+  .hero .actions {
+    width: min(100%, 18rem);
+  }
 }
 
 @media (min-width: 64rem) {
   .hero .actions {
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
+    width: auto;
+  }
+
+  .hero .actions .btn {
     width: auto;
   }
 }

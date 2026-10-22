@@ -80,9 +80,29 @@
 @media (min-width: 48rem) {
   .hero__grid {
     grid-template-columns: minmax(0, 1fr) var(--layout-photo);
+    grid-template-areas:
+      "intro photo"
+      "copy photo";
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-7);
+    column-gap: var(--space-7);
+    row-gap: var(--rhythm-copy);
+  }
+
+  .hero__intro {
+    grid-area: intro;
+  }
+
+  .hero__copy {
+    grid-area: copy;
+  }
+
+  .hero .portrait-frame {
+    grid-area: photo;
+    width: 100%;
+    max-width: var(--layout-photo);
+    justify-self: end;
+    align-self: center;
   }
 
   .role {

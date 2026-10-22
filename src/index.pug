@@ -9,9 +9,18 @@ html(lang="es-CL")
     main#contenido(tabindex="-1")
       section.hero#inicio(aria-labelledby="inicio-titulo")
         .container.hero__grid
-          .hero__copy
+          .hero__intro
             p.eyebrow= location
             h1#inicio-titulo= name
+          .portrait-frame
+            img.portrait(
+              src=portrait.src
+              width=portrait.width
+              height=portrait.height
+              alt=portrait.alt
+              fetchpriority="high"
+            )
+          .hero__copy
             p.hero__role
               span= role
               span.hero__caret(aria-hidden="true")
@@ -23,14 +32,6 @@ html(lang="es-CL")
                 | Descargar CV
               +button("/#contacto", "secondary")
                 | Contacto
-          .portrait-frame
-            img.portrait(
-              src=portrait.src
-              width=portrait.width
-              height=portrait.height
-              alt=portrait.alt
-              fetchpriority="high"
-            )
 
       +section("historia", "Sobre mí", "Mi historia")
         .grid-2
