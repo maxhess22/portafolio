@@ -1,0 +1,49 @@
+# TODO: reemplaza TODO-firebase-project-id por el id real del proyecto de Firebase.
+# El secreto debe llamarse FIREBASE_SERVICE_ACCOUNT_<ID>:
+# el id en mayúsculas y cada carácter que no sea letra o número convertido en _.
+# Con el placeholder, el secreto es FIREBASE_SERVICE_ACCOUNT_TODO_FIREBASE_PROJECT_ID.
+
+name: Desplegar a Firebase Hosting
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  checks: write
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: firebase-live
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Construir y verificar
+        run: npm run check
+
+      - name: Desplegar al canal live
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TODO_FIREBASE_PROJECT_ID }}
+          projectId: TODO-firebase-project-id
+          channelId: live
+          force: true

@@ -1,5 +1,22 @@
 {
-  "dependencies": {
-    "pug-cli": "^1.0.0-alpha6"
+  "name": "portafolio",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Portafolio estático de Max Hess, ingeniero de software fullstack.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "preview": "npm run build && node scripts/dev.mjs --preview",
+    "check": "npm run build && node scripts/check.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@fontsource/fraunces": "^5.3.0",
+    "@fontsource/source-sans-3": "^5.3.1",
+    "pug": "^3.0.4",
+    "sass": "^1.106.1"
   }
 }

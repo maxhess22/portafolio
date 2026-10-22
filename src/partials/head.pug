@@ -1,0 +1,34 @@
+head
+  meta(charset="utf-8")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+  meta(name="color-scheme" content="light dark")
+  meta(name="theme-color" content="#f4efe6" media="(prefers-color-scheme: light)")
+  meta(name="theme-color" content="#13110e" media="(prefers-color-scheme: dark)")
+  script.
+    (function () {
+      var theme = "light";
+      try {
+        var stored = localStorage.getItem("theme");
+        if (stored === "light" || stored === "dark") theme = stored;
+        else if (window.matchMedia("(prefers-color-scheme: dark)").matches) theme = "dark";
+      } catch (error) {}
+      var root = document.documentElement;
+      root.setAttribute("data-theme", theme);
+      root.setAttribute("data-enhanced", "true");
+    })();
+  title= title
+  meta(name="description" content=description)
+  meta(name="author" content=name)
+  meta(property="og:title" content=title)
+  meta(property="og:description" content=description)
+  meta(property="og:type" content="website")
+  meta(property="og:locale" content="es_CL")
+  meta(name="twitter:card" content="summary")
+  link(rel="icon" href="/favicon.svg" type="image/svg+xml")
+  link(rel="icon" href="/favicon.ico" sizes="16x16")
+  link(rel="preload" href="/fonts/fraunces-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin)
+  link(rel="preload" href="/fonts/source-sans-3-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin)
+  link(rel="stylesheet" href="/css/global.css")
+  if jsonLd
+    script(type="application/ld+json")
+      != jsonLd

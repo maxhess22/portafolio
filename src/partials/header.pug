@@ -1,0 +1,20 @@
+header.site-header
+  .container.site-header__bar
+    a.brand(href="/#inicio")
+      span.brand__mark(aria-hidden="true") MH
+      span.brand__name= name
+    .header-tools
+      button.theme-toggle(type="button" data-theme-toggle aria-pressed="false" aria-label="Activar tema oscuro")
+        +icon-sun
+        +icon-moon
+      button.nav-toggle(type="button" data-nav-toggle aria-expanded="false" aria-controls="navegacion")
+        span.nav-toggle__icon(aria-hidden="true")
+          span
+          span
+          span
+        span(data-nav-label) Menú
+    nav#navegacion.nav-panel(data-nav-panel aria-label="Secciones")
+      ul(role="list")
+        each item in nav
+          li
+            a(href=item.href)= item.label

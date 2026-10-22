@@ -1,0 +1,134 @@
+// Fase Cero, a la medida de este sitio.
+// Las primitivas no se usan en componentes. Los componentes solo leen tokens semánticos.
+
+:root {
+  --primitive-ink-950: #1b1612;
+  --primitive-ink-800: #3a332c;
+  --primitive-sand-50: #f4efe6;
+  --primitive-sand-100: #ebe3d6;
+  --primitive-sand-200: #ddd2c2;
+  --primitive-paper: #fffdf9;
+  --primitive-amber-800: #6e2e09;
+  --primitive-amber-700: #8a3b0c;
+  --primitive-amber-300: #f0b56b;
+  --primitive-amber-200: #f7d0a0;
+  --primitive-night-950: #13110e;
+  --primitive-night-900: #1d1a16;
+  --primitive-night-800: #2a261f;
+  --primitive-night-700: #3c352d;
+  --primitive-cream-50: #f4efe6;
+  --primitive-cream-200: #d4c7b4;
+  --primitive-cream-400: #b3a494;
+  --primitive-ink-contrast: #fffaf4;
+  --primitive-amber-ink: #24180c;
+  --primitive-muted: #514a42;
+  --primitive-line-strong: #6f655b;
+
+  --primitive-space-1: 0.25rem;
+  --primitive-space-2: 0.5rem;
+  --primitive-space-3: 0.75rem;
+  --primitive-space-4: 1rem;
+  --primitive-space-5: 1.5rem;
+  --primitive-space-6: 2rem;
+  --primitive-space-7: 3rem;
+  --primitive-space-8: 4.5rem;
+
+  --primitive-font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --primitive-font-body: "Source Sans 3", "Segoe UI", sans-serif;
+
+  --space-1: var(--primitive-space-1);
+  --space-2: var(--primitive-space-2);
+  --space-3: var(--primitive-space-3);
+  --space-4: var(--primitive-space-4);
+  --space-5: var(--primitive-space-5);
+  --space-6: var(--primitive-space-6);
+  --space-7: var(--primitive-space-7);
+  --space-8: var(--primitive-space-8);
+
+  --font-display: var(--primitive-font-display);
+  --font-body: var(--primitive-font-body);
+  --text-small: 0.9375rem;
+  --text-body: 1.0625rem;
+  --text-lead: 1.25rem;
+  --text-h4: 1.2rem;
+  --text-h3: clamp(1.35rem, 2vw, 1.75rem);
+  --text-h2: clamp(1.875rem, 4vw, 2.75rem);
+  --text-display: clamp(2.75rem, 8vw, 5.25rem);
+  --leading-body: 1.6;
+  --leading-tight: 1.12;
+  --measure: 65ch;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-pill: 999px;
+
+  --layout-max: 72rem;
+  --layout-gutter: clamp(1rem, 4vw, 2rem);
+  --layout-date: 14rem;
+  --layout-photo: 28rem;
+  --layout-side: 16rem;
+  --text-email: clamp(1.05rem, 4vw, 1.75rem);
+  --touch-min: 2.75rem;
+  --header-offset: 5.5rem;
+  --border-width: 1px;
+  --icon-bar: 2px;
+  --focus-width: 2px;
+  --focus-offset: 3px;
+  --duration: 180ms;
+  --layer-header: 30;
+  --layer-skip: 40;
+
+  --mark-size: 0.45rem;
+}
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: var(--primitive-sand-50);
+  --color-bg-elevated: var(--primitive-paper);
+  --color-bg-muted: var(--primitive-sand-100);
+  --color-fg: var(--primitive-ink-950);
+  --color-fg-muted: var(--primitive-muted);
+  --color-border: var(--primitive-sand-200);
+  --color-border-strong: var(--primitive-line-strong);
+  --color-accent: var(--primitive-amber-700);
+  --color-accent-hover: var(--primitive-amber-800);
+  --color-accent-contrast: var(--primitive-ink-contrast);
+  --color-focus: var(--primitive-ink-950);
+  --shadow-md: 0 16px 40px rgb(28 22 18 / 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --color-bg: var(--primitive-night-950);
+    --color-bg-elevated: var(--primitive-night-900);
+    --color-bg-muted: var(--primitive-night-800);
+    --color-fg: var(--primitive-cream-50);
+    --color-fg-muted: var(--primitive-cream-200);
+    --color-border: var(--primitive-night-700);
+    --color-border-strong: var(--primitive-cream-400);
+    --color-accent: var(--primitive-amber-300);
+    --color-accent-hover: var(--primitive-amber-200);
+    --color-accent-contrast: var(--primitive-amber-ink);
+    --color-focus: var(--primitive-cream-50);
+    --shadow-md: 0 16px 40px rgb(0 0 0 / 0.35);
+  }
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: var(--primitive-night-950);
+  --color-bg-elevated: var(--primitive-night-900);
+  --color-bg-muted: var(--primitive-night-800);
+  --color-fg: var(--primitive-cream-50);
+  --color-fg-muted: var(--primitive-cream-200);
+  --color-border: var(--primitive-night-700);
+  --color-border-strong: var(--primitive-cream-400);
+  --color-accent: var(--primitive-amber-300);
+  --color-accent-hover: var(--primitive-amber-200);
+  --color-accent-contrast: var(--primitive-amber-ink);
+  --color-focus: var(--primitive-cream-50);
+  --shadow-md: 0 16px 40px rgb(0 0 0 / 0.35);
+}
