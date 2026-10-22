@@ -5,6 +5,7 @@
   --primitive-navy: #172c3f;
   --primitive-navy-deep: #0a151f;
   --primitive-slate: #4f6378;
+  --primitive-slate-inset: #3f5366;
   --primitive-royal: #4169e1;
   --primitive-violet: #8a2be2;
   --primitive-bone: #eae4d8;
@@ -81,7 +82,9 @@
   color-scheme: dark;
   --color-bg: var(--primitive-navy);
   --color-bg-elevated: var(--primitive-slate);
+  --color-bg-inset: var(--primitive-slate-inset);
   --color-bg-deep: var(--primitive-navy-deep);
+  --color-inset-border: rgb(234 228 216 / 0.38);
   --color-fg: var(--primitive-white);
   --color-fg-muted: var(--primitive-smoke);
   --color-border: var(--primitive-smoke);

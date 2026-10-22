@@ -370,14 +370,10 @@
   overflow: hidden;
 }
 
-.project::before {
+.project--featured::before {
   content: "";
   display: block;
   height: var(--card-cap);
-  background: var(--color-bg-deep);
-}
-
-.project--featured::before {
   background: var(--color-accent);
 }
 
@@ -422,8 +418,9 @@
   gap: var(--space-2);
   margin: 0;
   padding: var(--space-4);
-  border: var(--border-width) dashed var(--color-border);
-  background: transparent;
+  border: var(--border-width) solid var(--color-inset-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-inset);
 }
 
 .todo__mark {
@@ -441,7 +438,8 @@
   display: grid;
   gap: var(--rhythm-tight);
   padding: var(--space-5);
-  background: var(--color-bg-deep);
+  border: var(--border-width) solid var(--color-inset-border);
+  background: var(--color-bg-inset);
 }
 
 .tech-group {

@@ -32,7 +32,7 @@ El puerto se puede cambiar con la variable `PORT`.
 
 La paleta, la tipografía y la composición salen del portafolio de 2023 y están escritas como tokens en `src/styles/tokens.scss`. Los componentes solo consumen esos tokens.
 
-- Fondo `#172c3f`, franjas y tarjetas `#4f6378`, pie y barra `#0a151f`.
+- Fondo `#172c3f`, franjas y tarjetas `#4f6378`. El negro `#0a151f` queda solo en el menú y el pie. Las subtarjetas usan un slate más oscuro, `#3f5366`, con un borde suave. El acento es el blanco hueso `#eae4d8`.
 - Texto blanco y whitesmoke. El acento es el blanco hueso `#eae4d8`. El hover de los botones usa ese hueso con texto oscuro, para que el contraste se sostenga.
 - Títulos en Lucida Sans y texto en Verdana, con una escala fluida (`clamp`) y el párrafo en unas 60 a 75 caracteres. La monoespaciada queda solo en las etiquetas cortas y en el cargo del hero.
 - En escritorio la lectura sigue un eje izquierdo y cierra a la derecha: el texto principal va a la izquierda; la foto, la ficha de formación, las fechas y las tarjetas secundarias van a la derecha. Los llamados a la acción quedan al final de ese recorrido. En móvil todo es una columna, alineada a la izquierda.
