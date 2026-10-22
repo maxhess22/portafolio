@@ -5,6 +5,36 @@ head
   meta(name="theme-color" content="#172c3f")
   script.
     document.documentElement.setAttribute("data-enhanced", "true");
+    (function () {
+      var key = "portafolio-scroll:" + location.pathname;
+      function read() {
+        try { return sessionStorage.getItem(key); } catch (error) { return null; }
+      }
+      function write(y) {
+        try { sessionStorage.setItem(key, String(y)); } catch (error) {}
+      }
+      var nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+      var saved = read();
+      var y = saved == null ? NaN : Number(saved);
+      if (nav && nav.type === "reload" && y > 0) {
+        var restore = function () { window.scrollTo(0, y); };
+        document.addEventListener("DOMContentLoaded", restore);
+        window.addEventListener("load", function () {
+          restore();
+          requestAnimationFrame(function () { requestAnimationFrame(restore); });
+        });
+      }
+      var scheduled = false;
+      addEventListener("scroll", function () {
+        if (scheduled) return;
+        scheduled = true;
+        requestAnimationFrame(function () {
+          scheduled = false;
+          write(window.scrollY);
+        });
+      }, { passive: true });
+      addEventListener("pagehide", function () { write(window.scrollY); });
+    })();
   title= title
   meta(name="description" content=description)
   meta(name="author" content=name)
