@@ -29,7 +29,6 @@ const banned = [
   "contador",
   "proyectogoogle",
   "mobilefirst",
-  "vue",
   "7341",
   "+56",
   "tel:",
@@ -61,6 +60,7 @@ const required = [
   "Pentaho",
   "Fase Cero",
   "SvelteKit",
+  "Vue",
   "WordPress",
   "chip__logo",
   "ma.hessalvarez@gmail.com",
@@ -135,7 +135,7 @@ for (const file of [
 if (!notFound.includes("Volver al inicio")) fail("La página 404 no vuelve al inicio");
 
 const logoCount = (index.match(/class="chip__logo"/g) || []).length;
-if (logoCount < 30) fail(`Faltan logos en los chips (${logoCount})`);
+if (logoCount < 31) fail(`Faltan logos en los chips (${logoCount})`);
 if (/cdn\.simpleicons|cdn\.jsdelivr\.net|unpkg\.com|cdn\.jsdelivr/i.test(index)) {
   fail("Los logos no pueden salir de un CDN");
 }

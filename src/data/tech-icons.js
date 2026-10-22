@@ -95,6 +95,7 @@ const simpleSlugs = {
   Python: "python",
   JavaScript: "javascript",
   React: "react",
+  Vue: "vuedotjs",
   SvelteKit: "svelte",
   Tailwind: "tailwindcss",
   Bootstrap: "bootstrap",

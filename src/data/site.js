@@ -168,7 +168,7 @@ export const site = {
     },
     {
       name: "Interfaz",
-      items: ["React", "SvelteKit", "Tailwind", "Bootstrap", "jQuery", "DataTables"],
+      items: ["React", "Vue", "SvelteKit", "Tailwind", "Bootstrap", "jQuery", "DataTables"],
     },
     {
       name: "CMS",
