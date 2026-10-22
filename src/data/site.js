@@ -15,7 +15,7 @@ export const site = {
     src: "/img/perfil.jpg",
     width: 720,
     height: 720,
-    alt: "Retrato de Max Hess al aire libre, con un suéter claro.",
+    alt: "Retrato de Max Hess sonriendo, con camisa blanca y corbata negra.",
   },
   nav: [
     { href: "/#historia", id: "historia", label: "Historia" },
