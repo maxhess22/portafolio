@@ -44,12 +44,14 @@
   --text-h3: 1.25rem;
   --text-h2: 1.75rem;
   --text-display: 2rem;
+  --text-hero: clamp(2.75rem, 5vw, 3.75rem);
   --text-email: clamp(1rem, 3.5vw, 1.25rem);
   --leading-body: 1.5;
   --leading-tight: 1.25;
   --measure: 42rem;
 
   --radius-md: 0.5rem;
+  --radius-photo: 1rem;
   --radius-lg: 1.25rem;
   --radius-circle: 50%;
 
@@ -58,7 +60,7 @@
   --layout-gutter: 1rem;
   --card-width: 15.625rem;
   --card-cap: 0.5rem;
-  --photo-size: 6.25rem;
+  --layout-photo: 20rem;
   --touch-min: 2.75rem;
   --header-offset: 4.5rem;
   --border-width: 1px;
@@ -81,5 +83,7 @@
   --color-accent-contrast: var(--primitive-navy-deep);
   --color-focus: var(--primitive-smoke);
   --color-link: var(--primitive-royal);
+  --color-photo-edge: rgb(245 245 245 / 0.42);
   --shadow-md: 0 12px 28px rgb(10 21 31 / 0.35);
+  --shadow-photo: 0 18px 40px rgb(0 0 0 / 0.55);
 }

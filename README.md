@@ -35,7 +35,7 @@ La paleta, la tipografía y la composición salen del portafolio de 2023 y está
 - Fondo `#172c3f`, franjas y tarjetas `#4f6378`, pie y barra `#0a151f`.
 - Texto blanco y whitesmoke. El hover de los botones es `#20b2aa` con texto oscuro, para que el contraste se sostenga.
 - Títulos en Lucida Sans, texto en Verdana, el cargo del hero en monoespaciada.
-- El hero es una columna centrada: foto circular, nombre y título.
+- En escritorio el hero es de dos columnas: el texto a la izquierda y la foto, de unos 320 px, a la derecha. La foto es cuadrada, con esquinas de 16 px, borde claro y sombra para separarla del navy. En móvil queda debajo del texto, al ancho disponible y con ese mismo tope.
 - Las tarjetas de proyecto usan el mismo radio, el mismo fondo y los mismos botones con borde claro.
 - El pie tiene el fondo más oscuro y las esquinas superiores redondeadas.
 

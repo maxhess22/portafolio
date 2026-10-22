@@ -74,6 +74,12 @@
 }
 
 @media (min-width: 48rem) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 1fr) var(--layout-photo);
+    align-items: center;
+    gap: var(--space-7);
+  }
+
   .grid-2 {
     grid-template-columns: minmax(0, 1.4fr) minmax(var(--layout-side), 0.8fr);
     align-items: start;

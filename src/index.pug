@@ -8,28 +8,29 @@ html(lang="es-CL")
     include partials/header.pug
     main#contenido(tabindex="-1")
       section.hero#inicio(aria-labelledby="inicio-titulo")
-        .hero__image
-          img.portrait(
-            src=portrait.src
-            width=portrait.width
-            height=portrait.height
-            alt=portrait.alt
-            fetchpriority="high"
-          )
-        .hero__contenido
-          h1#inicio-titulo= name
-          p.hero__role
-            span= role
-            span.hero__caret(aria-hidden="true")
-          p= location
-          p.hero__value= value
-          .actions
-            +button("/#proyectos", "primary")
-              | Proyectos
-            +button(cvPath, "secondary")(download=cvFilename)
-              | Descargar CV
-            +button("/#contacto", "secondary")
-              | Contacto
+        .container.hero__grid
+          .hero__copy
+            p.eyebrow= location
+            h1#inicio-titulo= name
+            p.hero__role
+              span= role
+              span.hero__caret(aria-hidden="true")
+            p.hero__value= value
+            .actions
+              +button("/#proyectos", "primary")
+                | Proyectos
+              +button(cvPath, "secondary")(download=cvFilename)
+                | Descargar CV
+              +button("/#contacto", "secondary")
+                | Contacto
+          .portrait-frame
+            img.portrait(
+              src=portrait.src
+              width=portrait.width
+              height=portrait.height
+              alt=portrait.alt
+              fetchpriority="high"
+            )
 
       +section("historia", "Sobre mí", "Mi historia")
         .grid-2

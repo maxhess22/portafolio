@@ -159,34 +159,46 @@
 }
 
 .hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-6);
-  padding: var(--space-6) var(--layout-gutter) var(--space-7);
+  padding-block: var(--space-6) var(--space-7);
   color: var(--color-fg-muted);
-  text-align: center;
 }
 
-.hero__image img,
-.portrait {
-  display: block;
-  width: var(--photo-size);
-  height: var(--photo-size);
-  margin-inline: auto;
-  border: var(--focus-width) solid var(--color-border);
-  border-radius: var(--radius-circle);
-  object-fit: cover;
-  object-position: center 20%;
-  background: var(--color-bg-elevated);
+.hero__grid {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
 }
 
-.hero__contenido,
 .hero__copy {
   display: grid;
-  justify-items: center;
+  justify-items: start;
   gap: var(--space-4);
-  width: min(100%, var(--measure));
+  min-width: 0;
+  text-align: left;
+}
+
+.hero h1 {
+  font-size: var(--text-hero);
+  text-align: left;
+}
+
+.portrait-frame {
+  width: min(100%, var(--layout-photo));
+  justify-self: center;
+  min-width: 0;
+}
+
+.portrait {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  border: var(--border-width) solid var(--color-photo-edge);
+  border-radius: var(--radius-photo);
+  background: var(--color-bg-elevated);
+  box-shadow: var(--shadow-photo);
 }
 
 .hero__role {
@@ -213,8 +225,13 @@
   color: var(--color-fg-muted);
 }
 
-.hero__value {
-  text-align: center;
+.hero__value,
+.hero__role {
+  text-align: left;
+}
+
+.hero .actions {
+  justify-content: flex-start;
 }
 
 .eyebrow {
