@@ -37,7 +37,7 @@ mixin chips(items)
       - var label = typeof item === "string" ? item : item.label
       - var note = typeof item === "string" ? "" : item.note
       - var mark = marks[label]
-      li.chip
+      li.chip(style=mark ? `--chip-brand:${mark.brand}` : undefined)
         if mark
           span.chip__mark(style=`background-color:${mark.tile}` aria-hidden="true")
             != mark.html

@@ -38,7 +38,7 @@ La paleta, la tipografía y la composición salen del portafolio de 2023 y está
 - En escritorio la lectura sigue un eje izquierdo y cierra a la derecha: el texto principal va a la izquierda; la foto, la ficha de formación, las fechas y las tarjetas secundarias van a la derecha. Los llamados a la acción quedan al final de ese recorrido. En móvil todo es una columna, alineada a la izquierda.
 - La foto del hero es cuadrada, de unos 320 px, con esquinas de 16 px, borde claro y sombra para separarla del navy.
 - Las tarjetas de proyecto usan el mismo radio, el mismo fondo y los mismos botones con borde claro.
-- Cada tecnología lleva su logo en el chip. Simple Icons (CC0) se resuelve al construir. Azure y DataTables son SVG de Devicon (MIT, `src/icons/LICENSE-devicon.txt`). Slim, AWS y Pentaho usan un monograma: no hay un símbolo oficial que se lea a ese tamaño.
+- Cada tecnología lleva su logo en el color de la marca, sobre una placa clara si el logo es oscuro y sobre una placa navy si el color es muy claro. El chip tiene un borde y un fondo levemente teñidos con ese color. Simple Icons (CC0) se resuelve al construir. Python, JavaScript, Firebase, GCP, Azure y DataTables son SVG de Devicon (MIT, `src/icons/LICENSE-devicon.txt`). Slim, AWS y Pentaho usan un monograma: no hay un símbolo oficial que se lea a ese tamaño.
 - El pie tiene el fondo más oscuro y las esquinas superiores redondeadas.
 
 No hay tema claro. Ese diseño era una sola paleta oscura, y un interruptor de tema la partía. El texto editable está en `src/data/site.js`.

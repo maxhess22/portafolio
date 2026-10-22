@@ -54,6 +54,10 @@
   min-width: 0;
 }
 
+.tech-list {
+  align-items: start;
+}
+
 .project-list__aside {
   display: grid;
   gap: var(--rhythm-block);

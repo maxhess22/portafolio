@@ -1,5 +1,6 @@
-// Logos de los chips. Simple Icons (CC0) se lee en el build.
-// Azure y DataTables son SVG de Devicon v2.17.0 (MIT, src/icons/LICENSE-devicon.txt).
+// Logos de los chips, en el color oficial de cada marca.
+// Simple Icons (CC0) se lee en el build y se pinta con su hex.
+// Los SVG de varias marcas son de Devicon v2.17.0 (MIT, src/icons/LICENSE-devicon.txt).
 // Slim, AWS y Pentaho no tienen un símbolo legible en esas librerías: monograma.
 
 import { createRequire } from "node:module";
@@ -11,7 +12,7 @@ import { site } from "./site.js";
 const require = createRequire(import.meta.url);
 const iconsDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../icons");
 
-const BONE = "#eae4d8";
+const WHITE = "#ffffff";
 const NAVY = "#172c3f";
 
 const catalog = JSON.parse(readFileSync(require.resolve("simple-icons/icons.json"), "utf8"));
@@ -34,15 +35,17 @@ function contrast(a, b) {
   return (hi + 0.05) / (lo + 0.05);
 }
 
-// El contraste es simétrico: si la marca no se lee sobre hueso, un glifo hueso
-// sobre esa marca tampoco llega a 3:1. En ese caso el glifo va en navy.
-function paint(brand) {
-  const color = `#${brand.replace("#", "")}`.toLowerCase();
-  if (contrast(color, BONE) >= 3) return { tile: BONE, glyph: color };
-  if (contrast(color, NAVY) < 3) {
-    throw new Error(`Contraste insuficiente para ${color}`);
-  }
-  return { tile: color, glyph: NAVY };
+function brandColor(hex) {
+  return `#${hex.replace("#", "")}`.toLowerCase();
+}
+
+// El glifo conserva el color de marca. La placa es clara si ese color se lee
+// sobre blanco; si la marca es muy clara, la placa es navy para que se vea.
+function plateFor(hex) {
+  const color = brandColor(hex);
+  if (contrast(color, WHITE) >= 3) return { tile: WHITE, glyph: color, brand: color };
+  if (contrast(color, NAVY) < 3) throw new Error(`Contraste insuficiente para ${color}`);
+  return { tile: NAVY, glyph: color, brand: color };
 }
 
 function simpleMark(slug) {
@@ -55,45 +58,52 @@ function simpleMark(slug) {
     return d[1];
   });
   if (!paths.length) throw new Error(`Sin trazo en ${slug}`);
-  const { tile, glyph } = paint(hex);
+  const { tile, glyph, brand } = plateFor(hex);
   const body = paths.map((d) => `<path fill="${glyph}" d="${d}"/>`).join("");
   return {
     tile,
+    brand,
     html: `<svg class="chip__logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${body}</svg>`,
   };
 }
 
-function localMark(file) {
-  const raw = readFileSync(path.join(iconsDir, file), "utf8")
-    .replace(/<\?xml[^?]*\?>/, "")
-    .trim()
-    .replaceAll("azure-original-", "chip-azure-");
+function prefixIds(svg, prefix) {
+  return svg
+    .replace(/id="([^"]+)"/g, (_, id) => `id="${prefix}${id}"`)
+    .replace(/url\(#([^)]+)\)/g, (_, id) => `url(#${prefix}${id})`);
+}
+
+function localMark(file, brand) {
+  const prefix = `chip-${file.replace(/\.svg$/, "")}-`;
+  const raw = prefixIds(
+    readFileSync(path.join(iconsDir, file), "utf8").replace(/<\?xml[^?]*\?>/, "").trim(),
+    prefix,
+  );
   const html = raw.replace("<svg", '<svg class="chip__logo" aria-hidden="true" focusable="false"');
   if (!html.startsWith("<svg")) throw new Error(`SVG inválido: ${file}`);
-  return { tile: BONE, html };
+  return { tile: WHITE, brand: brandColor(brand), html };
 }
 
 function monogram(text, brand) {
-  const { tile, glyph } = paint(brand);
+  const { tile, glyph, brand: color } = plateFor(brand);
   const size = text.length > 1 ? 8 : 14;
   return {
     tile,
+    brand: color,
     html: `<svg class="chip__logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><text x="12" y="12.5" dominant-baseline="middle" text-anchor="middle" font-family="Verdana, Geneva, Tahoma, sans-serif" font-size="${size}" font-weight="700" fill="${glyph}">${text}</text></svg>`,
   };
 }
 
 function awsMark() {
-  const { tile, glyph } = paint("FF9900");
+  const { tile, glyph, brand } = plateFor("FF9900");
   // El wordmark oficial no se lee a 24 px. La sonrisa es el monograma.
   const html = `<svg class="chip__logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="${glyph}" d="M3.4 13.6c1.8 3.6 4.8 5.6 8.6 5.6 3.2 0 5.7-1.4 7.4-3.6l2.4-4.2-2.6 1.8c-1.5 2-3.8 3.2-6.6 3.2-2.8 0-5-1.3-6.4-3.4-.6-.8-2.2-.6-2.8.6z"/></svg>`;
-  return { tile, html };
+  return { tile, brand, html };
 }
 
 const simpleSlugs = {
   Go: "go",
   PHP: "php",
-  Python: "python",
-  JavaScript: "javascript",
   React: "react",
   Vue: "vuedotjs",
   SvelteKit: "svelte",
@@ -105,8 +115,6 @@ const simpleSlugs = {
   FastAPI: "fastapi",
   Gin: "gin",
   MySQL: "mysql",
-  GCP: "googlecloud",
-  Firebase: "firebase",
   Git: "git",
   "GitHub Actions": "githubactions",
   WordPress: "wordpress",
@@ -116,8 +124,12 @@ const simpleSlugs = {
 
 export const techMarks = {
   ...Object.fromEntries(Object.entries(simpleSlugs).map(([label, slug]) => [label, simpleMark(slug)])),
-  Azure: localMark("azure.svg"),
-  DataTables: localMark("datatables.svg"),
+  Python: localMark("python.svg", "3776AB"),
+  JavaScript: localMark("javascript.svg", "F0DB4F"),
+  Azure: localMark("azure.svg", "0078D4"),
+  DataTables: localMark("datatables.svg", "172c3f"),
+  Firebase: localMark("firebase.svg", "FFA000"),
+  GCP: localMark("googlecloud.svg", "4285F4"),
   Slim: monogram("S", "68A063"),
   AWS: awsMark(),
   Pentaho: monogram("P", "E4002B"),
