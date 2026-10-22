@@ -1,0 +1,100 @@
+// Identidad del portafolio de 2023, expresada como tokens.
+// Los componentes solo leen tokens semánticos.
+
+:root {
+  --primitive-navy: #172c3f;
+  --primitive-navy-deep: #0a151f;
+  --primitive-slate: #4f6378;
+  --primitive-slate-inset: #3f5366;
+  --primitive-royal: #4169e1;
+  --primitive-violet: #8a2be2;
+  --primitive-bone: #eae4d8;
+  --primitive-smoke: #f5f5f5;
+  --primitive-white: #ffffff;
+  --primitive-brown: #321a08;
+
+  --primitive-space-1: 0.25rem;
+  --primitive-space-2: 0.5rem;
+  --primitive-space-3: 0.75rem;
+  --primitive-space-4: 1rem;
+  --primitive-space-5: 1.5rem;
+  --primitive-space-6: 2rem;
+  --primitive-space-7: 3rem;
+  --primitive-space-8: 4rem;
+
+  --primitive-font-display: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  --primitive-font-body: Verdana, Geneva, Tahoma, sans-serif;
+  --primitive-font-mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", monospace;
+
+  --space-1: var(--primitive-space-1);
+  --space-2: var(--primitive-space-2);
+  --space-3: var(--primitive-space-3);
+  --space-4: var(--primitive-space-4);
+  --space-5: var(--primitive-space-5);
+  --space-6: var(--primitive-space-6);
+  --space-7: var(--primitive-space-7);
+  --space-8: var(--primitive-space-8);
+
+  --font-display: var(--primitive-font-display);
+  --font-weight-heading: 700;
+  --font-body: var(--primitive-font-body);
+  --font-mono: var(--primitive-font-mono);
+  --text-small: clamp(0.875rem, 0.84rem + 0.2vw, 1rem);
+  --text-body: clamp(1rem, 0.96rem + 0.22vw, 1.125rem);
+  --text-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --text-h4: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+  --text-h3: clamp(1.25rem, 1.12rem + 0.7vw, 1.625rem);
+  --text-h2: clamp(1.75rem, 1.45rem + 1.35vw, 2.375rem);
+  --text-h1: clamp(2.5rem, 1.85rem + 2.3vw, 3.75rem);
+  --text-email: clamp(1rem, 0.94rem + 0.45vw, 1.375rem);
+  --leading-body: 1.6;
+  --leading-tight: 1.2;
+  --leading-small: 1.45;
+  --measure: 56ch;
+
+  --rhythm-section: clamp(3rem, 2.4rem + 2vw, 4.5rem);
+  --rhythm-header: var(--space-6);
+  --rhythm-block: var(--space-6);
+  --rhythm-copy: var(--space-4);
+  --rhythm-tight: var(--space-3);
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-photo: 1rem;
+  --radius-lg: 1.25rem;
+  --radius-circle: 50%;
+
+  --layout-max: 72rem;
+  --layout-side: 14rem;
+  --layout-gutter: 1rem;
+  --card-width: 15.625rem;
+  --card-cap: 0.5rem;
+  --layout-photo: 20rem;
+  --touch-min: 2.75rem;
+  --header-offset: 4.5rem;
+  --border-width: 1px;
+  --focus-width: 2px;
+  --focus-offset: 3px;
+  --duration: 180ms;
+  --duration-enter: 0.8s;
+  --layer-header: 30;
+  --layer-skip: 40;
+  --mark-size: 0.45rem;
+
+  color-scheme: dark;
+  --color-bg: var(--primitive-navy);
+  --color-bg-elevated: var(--primitive-slate);
+  --color-bg-inset: var(--primitive-slate-inset);
+  --color-bg-deep: var(--primitive-navy-deep);
+  --color-inset-border: rgb(234 228 216 / 0.38);
+  --color-fg: var(--primitive-white);
+  --color-fg-muted: var(--primitive-smoke);
+  --color-border: var(--primitive-smoke);
+  --color-accent: var(--primitive-bone);
+  --color-accent-contrast: var(--primitive-navy-deep);
+  --color-focus: var(--primitive-smoke);
+  --color-link: var(--primitive-royal);
+  --color-photo-edge: rgb(245 245 245 / 0.42);
+  --shadow-md: 0 12px 28px rgb(10 21 31 / 0.35);
+  --shadow-photo: 0 18px 40px rgb(0 0 0 / 0.55);
+}

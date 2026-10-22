@@ -1,0 +1,15 @@
+header.site-header
+  .container.site-header__bar
+    a.brand(href="/#inicio")= name
+    .header-tools
+      button.nav-toggle(type="button" data-nav-toggle aria-expanded="false" aria-controls="navegacion")
+        span.nav-toggle__icon(aria-hidden="true")
+          span
+          span
+          span
+        span(data-nav-label) Menú
+    nav#navegacion.nav-panel(data-nav-panel aria-label="Secciones")
+      ul(role="list")
+        each item in nav
+          li
+            a(href=item.href)= item.label

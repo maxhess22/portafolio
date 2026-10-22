@@ -1,0 +1,19 @@
+include partials/mixins.pug
+
+doctype html
+html(lang="es-CL")
+  include partials/head.pug
+  body
+    a.skip(href="#contenido") Saltar al contenido
+    include partials/header.pug
+    main#contenido(tabindex="-1")
+      .container
+        .missing
+          p.eyebrow 404
+          h1 Esta página no existe
+          p El enlace no lleva a ninguna parte del portafolio.
+          .actions
+            +button("/", "primary")
+              | Volver al inicio
+    include partials/footer.pug
+    script(src="/js/site.js" defer)

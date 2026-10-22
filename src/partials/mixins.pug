@@ -1,0 +1,56 @@
+mixin icon-sun
+  svg.icon.icon--sun(viewBox="0 0 24 24" aria-hidden="true" focusable="false" stroke-width="1.75")
+    circle(cx="12" cy="12" r="4")
+    path(d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41")
+
+mixin icon-moon
+  svg.icon.icon--moon(viewBox="0 0 24 24" aria-hidden="true" focusable="false" stroke-width="1.75")
+    path(d="M21 14.5A8.5 8.5 0 1 1 9.5 3a7 7 0 0 0 11.5 11.5z")
+
+mixin button(href, variant)
+  a.btn(href=href class=`btn--${variant}`)&attributes(attributes)
+    span.btn__label
+      block
+
+mixin button-external(href, variant)
+  a.btn(href=href class=`btn--${variant}` target="_blank" rel="noopener noreferrer")&attributes(attributes)
+    span.btn__label
+      block
+    span.visually-hidden (se abre en una pestaña nueva)
+
+mixin text-external(href)
+  a(href=href target="_blank" rel="noopener noreferrer")&attributes(attributes)
+    block
+    span.visually-hidden (se abre en una pestaña nueva)
+
+mixin todo(label, url)
+  p.todo(role="note")
+    strong.todo__mark TODO
+    span.todo__text
+      = `${label}: `
+      span.todo__url= url
+
+mixin chips(items)
+  - var marks = (typeof techMarks !== "undefined" && techMarks) ? techMarks : {}
+  ul.chips(role="list")
+    each item in items
+      - var label = typeof item === "string" ? item : item.label
+      - var note = typeof item === "string" ? "" : item.note
+      - var mark = marks[label]
+      li.chip(style=mark ? `--chip-brand:${mark.brand}` : undefined)
+        if mark
+          span.chip__mark(style=`background-color:${mark.tile}` aria-hidden="true")
+            != mark.html
+        span.chip__label= label
+        if note
+          span.chip__note= note
+
+mixin section(id, eyebrow, title, intro)
+  section.section(id=id aria-labelledby=`${id}-titulo`)&attributes(attributes)
+    .container
+      header.section__header
+        p.eyebrow= eyebrow
+        h2(id=`${id}-titulo`)= title
+        if intro
+          p.section__intro= intro
+      block

@@ -1,0 +1,124 @@
+include partials/mixins.pug
+
+doctype html
+html(lang="es-CL")
+  include partials/head.pug
+  body
+    a.skip(href="#contenido") Saltar al contenido
+    include partials/header.pug
+    main#contenido(tabindex="-1")
+      section.hero#inicio(aria-labelledby="inicio-titulo")
+        .container.hero__grid
+          .hero__intro
+            p.eyebrow= location
+            h1#inicio-titulo= name
+          .portrait-frame
+            img.portrait(
+              src=portrait.src
+              width=portrait.width
+              height=portrait.height
+              alt=portrait.alt
+              fetchpriority="high"
+            )
+          .hero__copy
+            p.hero__role
+              span= role
+              span.hero__caret(aria-hidden="true")
+            p.hero__value= value
+            .actions
+              +button("/#proyectos", "primary")
+                | Proyectos
+              +button(cvPath, "secondary")(download=cvFilename)
+                | Descargar CV
+              +button("/#contacto", "secondary")
+                | Contacto
+
+      +section("historia", "Sobre mí", "Mi historia")
+        .grid-2
+          .prose
+            each paragraph in story.paragraphs
+              p= paragraph
+            blockquote.pullquote
+              p= story.quote
+            each paragraph in story.after
+              p= paragraph
+          dl.facts
+            each fact in story.facts
+              div
+                dt= fact.label
+                dd= fact.value
+
+      +section("experiencia", "Trayectoria", "Experiencia", experienceIntro)
+        ol.timeline(role="list")
+          each job in experience
+            li.role(class=job.current ? "role--current" : undefined)
+              div
+                p.role__when
+                  time(datetime=job.start)= job.startLabel
+                  |  – 
+                  if job.end
+                    time(datetime=job.end)= job.endLabel
+                  else
+                    = job.endLabel
+              div.stack
+                h3= job.role
+                p.role__org= job.org
+                ul.points(role="list")
+                  each point in job.points
+                    li= point
+
+      +section("proyectos", "Ahora", "Proyectos", projectsIntro)
+        .project-list
+          article.project.project--featured
+            .project__body
+              p.eyebrow= featured.eyebrow
+              h3= featured.name
+              p= featured.summary
+              ul.points(role="list")
+                each point in featured.points
+                  li= point
+              p= featured.note
+            .project__aside
+              +chips(featured.stack)
+              +button-external(featured.link.url, "primary")= featured.link.label
+
+          .project-list__aside
+            each project in projects
+              article.project
+                .project__body
+                  h3= project.name
+                  p= project.summary
+                  +chips(project.stack)
+                  +todo(project.todo.label, project.todo.url)
+
+          article.project.project--wide
+            .project__body
+              h3= municipal.name
+              p= municipal.summary
+              .systems
+                each item in municipal.items
+                  div.system
+                    h4= item.name
+                    p= item.summary
+              p.note= municipal.note
+
+      +section("tecnologias", "Oficio", "Tecnologías", techIntro)(class="section--band")
+        .tech-list
+          each group in technologies
+            section.tech-group(aria-labelledby=`tech-${group.name}`)
+              h3(id=`tech-${group.name}`)= group.name
+              +chips(group.items)
+
+      +section("contacto", "Hablemos", "Contacto", contactIntro)
+        .contact
+          a.contact-email(href=`mailto:${email}`)= email
+          .actions
+            +button(cvPath, "primary")(download=cvFilename)
+              | Descargar CV
+            +button-external(linkedin, "secondary")
+              | LinkedIn
+            +button-external(github, "secondary")
+              | GitHub
+
+    include partials/footer.pug
+    script(src="/js/site.js" defer)
