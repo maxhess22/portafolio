@@ -24,19 +24,22 @@ El puerto se puede cambiar con la variable `PORT`.
 
 ## Estructura
 
-- `src/` — plantillas Pug, estilos, contenido y el script del tema.
+- `src/` — plantillas Pug, estilos, contenido y el menú.
 - `public/` — foto, favicon, CV y `robots.txt`.
 - `dist/` — salida de la construcción. No se versiona.
 
 ## Diseño
 
-El criterio es el de Fase Cero, aplicado aquí porque `maxhess22/biblioteca-ajedrez` y `maxhess22/ui-lab-fase-cero` son privados.
+La paleta, la tipografía y la composición salen del portafolio de 2023 y están escritas como tokens en `src/styles/tokens.scss`. Los componentes solo consumen esos tokens.
 
-- Los tokens semánticos viven en `src/styles/tokens.scss` (color, espacio, tipo, radios). El tema claro y el oscuro solo cambian esos tokens.
-- Los componentes (`src/styles/components.scss` y los mixins de `src/partials/mixins.pug`) consumen tokens. No llevan colores ni medidas sueltas.
-- El texto editable está en `src/data/site.js`.
+- Fondo `#172c3f`, franjas y tarjetas `#4f6378`, pie y barra `#0a151f`.
+- Texto blanco y whitesmoke. El hover de los botones es `#20b2aa` con texto oscuro, para que el contraste se sostenga.
+- Títulos en Lucida Sans, texto en Verdana, el cargo del hero en monoespaciada.
+- El hero es una columna centrada: foto circular, nombre y título.
+- Las tarjetas de proyecto usan el mismo radio, el mismo fondo y los mismos botones con borde claro.
+- El pie tiene el fondo más oscuro y las esquinas superiores redondeadas.
 
-El sitio arranca en el tema del sistema. El botón del encabezado lo cambia y guarda la preferencia en `localStorage`.
+No hay tema claro. Ese diseño era una sola paleta oscura, y un interruptor de tema la partía. El texto editable está en `src/data/site.js`.
 
 ## Firebase Hosting
 

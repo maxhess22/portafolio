@@ -1,12 +1,7 @@
 header.site-header
   .container.site-header__bar
-    a.brand(href="/#inicio")
-      span.brand__mark(aria-hidden="true") MH
-      span.brand__name= name
+    a.brand(href="/#inicio")= name
     .header-tools
-      button.theme-toggle(type="button" data-theme-toggle aria-pressed="false" aria-label="Activar tema oscuro")
-        +icon-sun
-        +icon-moon
       button.nav-toggle(type="button" data-nav-toggle aria-expanded="false" aria-controls="navegacion")
         span.nav-toggle__icon(aria-hidden="true")
           span

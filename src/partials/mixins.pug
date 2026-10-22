@@ -41,7 +41,7 @@ mixin chips(items)
           span.chip__note= note
 
 mixin section(id, eyebrow, title, intro)
-  section.section(id=id aria-labelledby=`${id}-titulo`)
+  section.section(id=id aria-labelledby=`${id}-titulo`)&attributes(attributes)
     .container
       header.section__header
         p.eyebrow= eyebrow

@@ -100,11 +100,11 @@ for (const href of hrefs) {
   if (href.toLowerCase().includes("todo")) fail(`El placeholder TODO no debe ser un enlace: ${href}`);
 }
 
-if (!css.includes("data-theme=dark") && !css.includes('data-theme="dark"')) {
-  fail("El CSS no define el tema oscuro");
+for (const color of ["#172c3f", "#0a151f", "#4f6378", "#20b2aa"]) {
+  if (!css.toLowerCase().includes(color)) fail(`Falta el color del diseño anterior: ${color}`);
 }
-if (!css.includes("prefers-color-scheme: dark") && !css.includes("prefers-color-scheme:dark")) {
-  fail("El CSS no respeta el tema del sistema");
+if (index.includes("data-theme-toggle") || css.includes("Fraunces")) {
+  fail("Quedó el tema claro o la tipografía del rediseño anterior");
 }
 
 if (/#[0-9a-fA-F]{3,8}\b/.test(components + layout)) {

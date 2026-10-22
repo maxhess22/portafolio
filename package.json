@@ -14,8 +14,6 @@
     "node": ">=20"
   },
   "devDependencies": {
-    "@fontsource/fraunces": "^5.3.0",
-    "@fontsource/source-sans-3": "^5.3.1",
     "pug": "^3.0.4",
     "sass": "^1.106.1"
   }

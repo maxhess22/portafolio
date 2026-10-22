@@ -1,35 +1,11 @@
 (function () {
-  var root = document.documentElement;
-  var themeToggle = document.querySelector("[data-theme-toggle]");
   var navToggle = document.querySelector("[data-nav-toggle]");
   var navPanel = document.querySelector("[data-nav-panel]");
-  var desktopQuery = window.matchMedia("(min-width: 64rem)");
+  var desktopQuery = window.matchMedia("(min-width: 48rem)");
 
   document.querySelectorAll("[data-year]").forEach(function (node) {
     node.textContent = String(new Date().getFullYear());
   });
-
-  function applyTheme(theme) {
-    var dark = theme === "dark";
-    root.setAttribute("data-theme", theme);
-    if (!themeToggle) return;
-    themeToggle.setAttribute("aria-pressed", dark ? "true" : "false");
-    themeToggle.setAttribute("aria-label", dark ? "Activar tema claro" : "Activar tema oscuro");
-  }
-
-  applyTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light");
-
-  if (themeToggle) {
-    themeToggle.addEventListener("click", function () {
-      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      try {
-        localStorage.setItem("theme", next);
-      } catch (error) {
-        /* El sitio sigue usable si el almacenamiento está bloqueado. */
-      }
-      applyTheme(next);
-    });
-  }
 
   function setNavOpen(open) {
     if (!navToggle || !navPanel) return;

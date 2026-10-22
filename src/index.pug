@@ -8,27 +8,28 @@ html(lang="es-CL")
     include partials/header.pug
     main#contenido(tabindex="-1")
       section.hero#inicio(aria-labelledby="inicio-titulo")
-        .container.hero__grid
-          .hero__copy
-            p.eyebrow= location
-            h1#inicio-titulo.hero__title= name
-            p.hero__role= role
-            p.hero__value= value
-            .actions
-              +button("/#proyectos", "primary")
-                | Proyectos
-              +button(cvPath, "secondary")(download=cvFilename)
-                | Descargar CV
-              +button("/#contacto", "secondary")
-                | Contacto
-          .portrait-frame
-            img.portrait(
-              src=portrait.src
-              width=portrait.width
-              height=portrait.height
-              alt=portrait.alt
-              fetchpriority="high"
-            )
+        .hero__image
+          img.portrait(
+            src=portrait.src
+            width=portrait.width
+            height=portrait.height
+            alt=portrait.alt
+            fetchpriority="high"
+          )
+        .hero__contenido
+          h1#inicio-titulo= name
+          p.hero__role
+            span= role
+            span.hero__caret(aria-hidden="true")
+          p= location
+          p.hero__value= value
+          .actions
+            +button("/#proyectos", "primary")
+              | Proyectos
+            +button(cvPath, "secondary")(download=cvFilename)
+              | Descargar CV
+            +button("/#contacto", "secondary")
+              | Contacto
 
       +section("historia", "Sobre mí", "Mi historia")
         .grid-2
@@ -98,7 +99,7 @@ html(lang="es-CL")
                     p= item.summary
               p.note= municipal.note
 
-      +section("tecnologias", "Oficio", "Tecnologías", techIntro)
+      +section("tecnologias", "Oficio", "Tecnologías", techIntro)(class="section--band")
         .tech-list
           each group in technologies
             section.tech-group(aria-labelledby=`tech-${group.name}`)

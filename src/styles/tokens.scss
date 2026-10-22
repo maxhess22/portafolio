@@ -1,28 +1,16 @@
-// Fase Cero, a la medida de este sitio.
-// Las primitivas no se usan en componentes. Los componentes solo leen tokens semánticos.
+// Identidad del portafolio de 2023, expresada como tokens.
+// Los componentes solo leen tokens semánticos.
 
 :root {
-  --primitive-ink-950: #1b1612;
-  --primitive-ink-800: #3a332c;
-  --primitive-sand-50: #f4efe6;
-  --primitive-sand-100: #ebe3d6;
-  --primitive-sand-200: #ddd2c2;
-  --primitive-paper: #fffdf9;
-  --primitive-amber-800: #6e2e09;
-  --primitive-amber-700: #8a3b0c;
-  --primitive-amber-300: #f0b56b;
-  --primitive-amber-200: #f7d0a0;
-  --primitive-night-950: #13110e;
-  --primitive-night-900: #1d1a16;
-  --primitive-night-800: #2a261f;
-  --primitive-night-700: #3c352d;
-  --primitive-cream-50: #f4efe6;
-  --primitive-cream-200: #d4c7b4;
-  --primitive-cream-400: #b3a494;
-  --primitive-ink-contrast: #fffaf4;
-  --primitive-amber-ink: #24180c;
-  --primitive-muted: #514a42;
-  --primitive-line-strong: #6f655b;
+  --primitive-navy: #172c3f;
+  --primitive-navy-deep: #0a151f;
+  --primitive-slate: #4f6378;
+  --primitive-royal: #4169e1;
+  --primitive-violet: #8a2be2;
+  --primitive-sea: #20b2aa;
+  --primitive-smoke: #f5f5f5;
+  --primitive-white: #ffffff;
+  --primitive-brown: #321a08;
 
   --primitive-space-1: 0.25rem;
   --primitive-space-2: 0.5rem;
@@ -31,10 +19,11 @@
   --primitive-space-5: 1.5rem;
   --primitive-space-6: 2rem;
   --primitive-space-7: 3rem;
-  --primitive-space-8: 4.5rem;
+  --primitive-space-8: 4rem;
 
-  --primitive-font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
-  --primitive-font-body: "Source Sans 3", "Segoe UI", sans-serif;
+  --primitive-font-display: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  --primitive-font-body: Verdana, Geneva, Tahoma, sans-serif;
+  --primitive-font-mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", monospace;
 
   --space-1: var(--primitive-space-1);
   --space-2: var(--primitive-space-2);
@@ -47,88 +36,50 @@
 
   --font-display: var(--primitive-font-display);
   --font-body: var(--primitive-font-body);
-  --text-small: 0.9375rem;
-  --text-body: 1.0625rem;
-  --text-lead: 1.25rem;
-  --text-h4: 1.2rem;
-  --text-h3: clamp(1.35rem, 2vw, 1.75rem);
-  --text-h2: clamp(1.875rem, 4vw, 2.75rem);
-  --text-display: clamp(2.75rem, 8vw, 5.25rem);
-  --leading-body: 1.6;
-  --leading-tight: 1.12;
-  --measure: 65ch;
+  --font-mono: var(--primitive-font-mono);
+  --text-small: 0.875rem;
+  --text-body: 1rem;
+  --text-lead: 1.125rem;
+  --text-h4: 1.125rem;
+  --text-h3: 1.25rem;
+  --text-h2: 1.75rem;
+  --text-display: 2rem;
+  --text-email: clamp(1rem, 3.5vw, 1.25rem);
+  --leading-body: 1.5;
+  --leading-tight: 1.25;
+  --measure: 42rem;
 
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
+  --radius-md: 0.5rem;
   --radius-lg: 1.25rem;
-  --radius-pill: 999px;
+  --radius-circle: 50%;
 
-  --layout-max: 72rem;
-  --layout-gutter: clamp(1rem, 4vw, 2rem);
-  --layout-date: 14rem;
-  --layout-photo: 28rem;
-  --layout-side: 16rem;
-  --text-email: clamp(1.05rem, 4vw, 1.75rem);
+  --layout-max: 58.25rem;
+  --layout-side: 14rem;
+  --layout-gutter: 1rem;
+  --card-width: 15.625rem;
+  --card-cap: 0.5rem;
+  --photo-size: 6.25rem;
   --touch-min: 2.75rem;
-  --header-offset: 5.5rem;
+  --header-offset: 4.5rem;
   --border-width: 1px;
-  --icon-bar: 2px;
   --focus-width: 2px;
   --focus-offset: 3px;
   --duration: 180ms;
+  --duration-enter: 0.8s;
   --layer-header: 30;
   --layer-skip: 40;
-
   --mark-size: 0.45rem;
-}
 
-:root,
-[data-theme="light"] {
-  color-scheme: light;
-  --color-bg: var(--primitive-sand-50);
-  --color-bg-elevated: var(--primitive-paper);
-  --color-bg-muted: var(--primitive-sand-100);
-  --color-fg: var(--primitive-ink-950);
-  --color-fg-muted: var(--primitive-muted);
-  --color-border: var(--primitive-sand-200);
-  --color-border-strong: var(--primitive-line-strong);
-  --color-accent: var(--primitive-amber-700);
-  --color-accent-hover: var(--primitive-amber-800);
-  --color-accent-contrast: var(--primitive-ink-contrast);
-  --color-focus: var(--primitive-ink-950);
-  --shadow-md: 0 16px 40px rgb(28 22 18 / 0.12);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --color-bg: var(--primitive-night-950);
-    --color-bg-elevated: var(--primitive-night-900);
-    --color-bg-muted: var(--primitive-night-800);
-    --color-fg: var(--primitive-cream-50);
-    --color-fg-muted: var(--primitive-cream-200);
-    --color-border: var(--primitive-night-700);
-    --color-border-strong: var(--primitive-cream-400);
-    --color-accent: var(--primitive-amber-300);
-    --color-accent-hover: var(--primitive-amber-200);
-    --color-accent-contrast: var(--primitive-amber-ink);
-    --color-focus: var(--primitive-cream-50);
-    --shadow-md: 0 16px 40px rgb(0 0 0 / 0.35);
-  }
-}
-
-[data-theme="dark"] {
   color-scheme: dark;
-  --color-bg: var(--primitive-night-950);
-  --color-bg-elevated: var(--primitive-night-900);
-  --color-bg-muted: var(--primitive-night-800);
-  --color-fg: var(--primitive-cream-50);
-  --color-fg-muted: var(--primitive-cream-200);
-  --color-border: var(--primitive-night-700);
-  --color-border-strong: var(--primitive-cream-400);
-  --color-accent: var(--primitive-amber-300);
-  --color-accent-hover: var(--primitive-amber-200);
-  --color-accent-contrast: var(--primitive-amber-ink);
-  --color-focus: var(--primitive-cream-50);
-  --shadow-md: 0 16px 40px rgb(0 0 0 / 0.35);
+  --color-bg: var(--primitive-navy);
+  --color-bg-elevated: var(--primitive-slate);
+  --color-bg-deep: var(--primitive-navy-deep);
+  --color-fg: var(--primitive-white);
+  --color-fg-muted: var(--primitive-smoke);
+  --color-border: var(--primitive-smoke);
+  --color-accent: var(--primitive-sea);
+  --color-accent-contrast: var(--primitive-navy-deep);
+  --color-focus: var(--primitive-smoke);
+  --color-link: var(--primitive-royal);
+  --shadow-md: 0 12px 28px rgb(10 21 31 / 0.35);
 }

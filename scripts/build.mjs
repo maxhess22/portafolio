@@ -11,13 +11,6 @@ const pug = require("pug");
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
 
-const fonts = [
-  ["@fontsource/fraunces", "fraunces-latin-600-normal.woff2"],
-  ["@fontsource/fraunces", "fraunces-latin-600-italic.woff2"],
-  ["@fontsource/source-sans-3", "source-sans-3-latin-400-normal.woff2"],
-  ["@fontsource/source-sans-3", "source-sans-3-latin-600-normal.woff2"],
-];
-
 function render(template, locals) {
   return pug.renderFile(path.join(root, "src", template), locals);
 }
@@ -25,7 +18,6 @@ function render(template, locals) {
 export async function build() {
   await rm(dist, { recursive: true, force: true });
   await mkdir(path.join(dist, "css"), { recursive: true });
-  await mkdir(path.join(dist, "fonts"), { recursive: true });
   await mkdir(path.join(dist, "js"), { recursive: true });
 
   await cp(path.join(root, "public"), dist, { recursive: true });
@@ -35,12 +27,6 @@ export async function build() {
     loadPaths: [path.join(root, "src/styles")],
   });
   await writeFile(path.join(dist, "css/global.css"), compiled.css);
-
-  for (const [pkg, file] of fonts) {
-    const pkgRoot = path.dirname(require.resolve(`${pkg}/package.json`));
-    await cp(path.join(pkgRoot, "files", file), path.join(dist, "fonts", file));
-  }
-
   await cp(path.join(root, "src/js/site.js"), path.join(dist, "js/site.js"));
 
   const year = new Date().getFullYear();
