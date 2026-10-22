@@ -100,9 +100,10 @@ for (const href of hrefs) {
   if (href.toLowerCase().includes("todo")) fail(`El placeholder TODO no debe ser un enlace: ${href}`);
 }
 
-for (const color of ["#172c3f", "#0a151f", "#4f6378", "#20b2aa"]) {
-  if (!css.toLowerCase().includes(color)) fail(`Falta el color del diseño anterior: ${color}`);
+for (const color of ["#172c3f", "#0a151f", "#4f6378", "#eae4d8"]) {
+  if (!css.toLowerCase().includes(color)) fail(`Falta un color de la paleta: ${color}`);
 }
+if (css.toLowerCase().includes("#20b2aa")) fail("Volvió el acento turquesa");
 if (index.includes("data-theme-toggle") || css.includes("Fraunces")) {
   fail("Quedó el tema claro o la tipografía del rediseño anterior");
 }

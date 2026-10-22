@@ -47,7 +47,17 @@ p,
 li,
 dd,
 a {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+dd {
+  text-align: start;
 }
 
 h1,
@@ -59,11 +69,11 @@ h4 {
   font-family: var(--font-display);
   font-weight: 400;
   line-height: var(--leading-tight);
-  text-align: center;
+  text-wrap: balance;
 }
 
 h1 {
-  font-size: var(--text-display);
+  font-size: var(--text-h1);
 }
 
 h2 {

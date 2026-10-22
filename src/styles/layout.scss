@@ -4,7 +4,7 @@
 }
 
 .section {
-  padding-block: var(--space-7);
+  padding-block: var(--rhythm-section);
 }
 
 .section--band {
@@ -13,16 +13,16 @@
 
 .section__header {
   display: grid;
-  justify-items: center;
-  gap: var(--space-3);
+  justify-items: start;
+  gap: var(--rhythm-tight);
   max-width: var(--measure);
-  margin: 0 auto var(--space-6);
-  text-align: center;
+  margin: 0 0 var(--rhythm-header);
+  text-align: left;
 }
 
 .stack {
   display: grid;
-  gap: var(--space-4);
+  gap: var(--rhythm-copy);
   min-width: 0;
 }
 
@@ -30,7 +30,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--space-4);
   margin: 0;
   padding: 0;
@@ -40,8 +40,8 @@
 .actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-4);
+  justify-content: flex-start;
+  gap: var(--space-3);
 }
 
 .grid-2,
@@ -50,13 +50,13 @@
 .systems,
 .timeline {
   display: grid;
-  gap: var(--space-6);
+  gap: var(--rhythm-block);
   min-width: 0;
 }
 
 .project-list {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-width)), var(--card-width)));
-  justify-content: center;
+  justify-content: start;
 }
 
 .project--featured,
@@ -80,12 +80,14 @@
     gap: var(--space-7);
   }
 
-  .grid-2 {
-    grid-template-columns: minmax(0, 1.4fr) minmax(var(--layout-side), 0.8fr);
-    align-items: start;
-  }
-
   .systems {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .grid-2 {
+    grid-template-columns: minmax(0, var(--measure)) minmax(var(--layout-side), 18rem);
+    align-items: start;
   }
 }

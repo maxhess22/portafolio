@@ -37,18 +37,24 @@
   --font-display: var(--primitive-font-display);
   --font-body: var(--primitive-font-body);
   --font-mono: var(--primitive-font-mono);
-  --text-small: 0.875rem;
-  --text-body: 1rem;
-  --text-lead: 1.125rem;
-  --text-h4: 1.125rem;
-  --text-h3: 1.25rem;
-  --text-h2: 1.75rem;
-  --text-display: 2rem;
-  --text-hero: clamp(2.75rem, 5vw, 3.75rem);
-  --text-email: clamp(1rem, 3.5vw, 1.25rem);
-  --leading-body: 1.5;
-  --leading-tight: 1.25;
-  --measure: 42rem;
+  --text-small: clamp(0.875rem, 0.84rem + 0.2vw, 1rem);
+  --text-body: clamp(1rem, 0.96rem + 0.22vw, 1.125rem);
+  --text-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --text-h4: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+  --text-h3: clamp(1.25rem, 1.12rem + 0.7vw, 1.625rem);
+  --text-h2: clamp(1.75rem, 1.45rem + 1.35vw, 2.375rem);
+  --text-h1: clamp(2.5rem, 1.85rem + 2.3vw, 3.75rem);
+  --text-email: clamp(1rem, 0.94rem + 0.45vw, 1.375rem);
+  --leading-body: 1.6;
+  --leading-tight: 1.2;
+  --leading-small: 1.45;
+  --measure: 56ch;
+
+  --rhythm-section: clamp(3rem, 2.4rem + 2vw, 4.5rem);
+  --rhythm-header: var(--space-6);
+  --rhythm-block: var(--space-6);
+  --rhythm-copy: var(--space-4);
+  --rhythm-tight: var(--space-3);
 
   --radius-md: 0.5rem;
   --radius-photo: 1rem;
