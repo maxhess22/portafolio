@@ -171,6 +171,10 @@ export const site = {
       items: ["React", "SvelteKit", "Tailwind", "Bootstrap", "jQuery", "DataTables"],
     },
     {
+      name: "CMS",
+      items: ["WordPress"],
+    },
+    {
       name: "Backend",
       items: ["Laravel", "Slim", "Django", "FastAPI", "Gin"],
     },

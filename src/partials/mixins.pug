@@ -31,11 +31,16 @@ mixin todo(label, url)
       span.todo__url= url
 
 mixin chips(items)
+  - var marks = (typeof techMarks !== "undefined" && techMarks) ? techMarks : {}
   ul.chips(role="list")
     each item in items
       - var label = typeof item === "string" ? item : item.label
       - var note = typeof item === "string" ? "" : item.note
+      - var mark = marks[label]
       li.chip
+        if mark
+          span.chip__mark(style=`background-color:${mark.tile}` aria-hidden="true")
+            != mark.html
         span.chip__label= label
         if note
           span.chip__note= note

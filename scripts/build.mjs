@@ -4,6 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import * as sass from "sass";
 import { jsonLd, site } from "../src/data/site.js";
+import { techMarks } from "../src/data/tech-icons.js";
 
 const require = createRequire(import.meta.url);
 const pug = require("pug");
@@ -33,6 +34,7 @@ export async function build() {
   const shared = {
     ...site,
     year,
+    techMarks,
     description: site.description,
   };
 

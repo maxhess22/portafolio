@@ -61,6 +61,8 @@ const required = [
   "Pentaho",
   "Fase Cero",
   "SvelteKit",
+  "WordPress",
+  "chip__logo",
   "ma.hessalvarez@gmail.com",
   "https://www.linkedin.com/in/max-felipe-hess-alvarez-37414b1bb/",
   "https://github.com/maxhess22",
@@ -131,6 +133,12 @@ for (const file of [
 }
 
 if (!notFound.includes("Volver al inicio")) fail("La página 404 no vuelve al inicio");
+
+const logoCount = (index.match(/class="chip__logo"/g) || []).length;
+if (logoCount < 30) fail(`Faltan logos en los chips (${logoCount})`);
+if (/cdn\.simpleicons|cdn\.jsdelivr\.net|unpkg\.com|cdn\.jsdelivr/i.test(index)) {
+  fail("Los logos no pueden salir de un CDN");
+}
 
 if (failures.length) {
   for (const message of failures) console.error(`- ${message}`);
