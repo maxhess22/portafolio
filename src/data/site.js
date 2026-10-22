@@ -28,7 +28,7 @@ export const site = {
     paragraphs: [
       "Desde chico tuve curiosidad por cómo funciona la tecnología. Me encantaban los computadores y los videojuegos, y quería entender cómo funcionaban.",
       "En octavo básico formateé mi primer computador. Abrí el problema, seguí lo que iba descubriendo y la máquina volvió a partir. Ahí se me quedó la maña.",
-      "Estudié Ingeniería Informática en Duoc UC, entre 2020 y 2024. Ahí puse esa curiosidad en calidad de software, modelos de datos y desarrollo.",
+      "Estudié Ingeniería Informática en Duoc UC, entre 2020 y 2023. Ahí puse esa curiosidad en calidad de software, modelos de datos y desarrollo.",
     ],
     quote:
       "Me apasiona la inteligencia artificial porque ahora tenemos todo el conocimiento en la palma de la mano.",
@@ -40,7 +40,7 @@ export const site = {
     facts: [
       {
         label: "Formación",
-        value: "Ingeniería Informática, Duoc UC, 2020–2024",
+        value: "Ingeniería Informática, Duoc UC, 2020–2023",
       },
       {
         label: "Especialidad",
