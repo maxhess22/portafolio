@@ -33,30 +33,16 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: var(--space-2);
   min-height: calc(var(--touch-min) + var(--space-4));
   padding-block: var(--space-2);
 }
 
-.brand {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--touch-min);
-  margin-right: auto;
-  color: var(--color-fg);
-  font-family: var(--font-display);
-  font-size: var(--text-lead);
-  text-decoration: none;
-}
-
-.brand:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-
 .header-tools {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .nav-toggle {
@@ -66,6 +52,7 @@
 .nav-panel ul {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-1);
   margin: 0;
   padding: 0;
@@ -145,10 +132,11 @@
 
   [data-enhanced="true"] .nav-panel ul {
     display: grid;
+    justify-items: center;
   }
 
   [data-enhanced="true"] .nav-panel a {
-    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -519,6 +507,86 @@
 .tech-group h3 {
   align-self: start;
   min-height: calc(var(--text-h3) * var(--leading-tight));
+}
+
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mosaic__cell {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: var(--space-2);
+  min-width: 0;
+  min-height: 7.5rem;
+  padding: var(--space-3) var(--space-2);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-inset);
+  text-align: center;
+}
+
+.mosaic__logo {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.mosaic .chip__logo {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.mosaic__name {
+  font-size: 0.875rem;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.mosaic__note {
+  color: var(--color-fg-muted);
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 30rem) {
+  .mosaic {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .mosaic {
+    grid-template-columns: repeat(auto-fill, 6.75rem);
+    justify-content: start;
+  }
+
+  .mosaic__cell {
+    min-height: 8.75rem;
+  }
+
+  .mosaic__logo,
+  .mosaic .chip__logo {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+@media (hover: hover) {
+  .mosaic__cell {
+    transition: transform var(--duration) ease;
+  }
+
+  .mosaic__cell:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .btn {

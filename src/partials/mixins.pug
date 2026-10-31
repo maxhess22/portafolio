@@ -35,15 +35,27 @@ mixin chips(items)
   ul.chips(role="list")
     each item in items
       - var label = typeof item === "string" ? item : item.label
-      - var note = typeof item === "string" ? "" : item.note
       - var mark = marks[label]
-      li.chip(style=mark ? `--chip-brand:${mark.brand}` : undefined)
+      li.chip
         if mark
-          span.chip__mark(style=`background-color:${mark.tile}` aria-hidden="true")
+          span.chip__mark(aria-hidden="true")
             != mark.html
         span.chip__label= label
+
+mixin mosaic(items)
+  - var marks = (typeof techMarks !== "undefined" && techMarks) ? techMarks : {}
+  ul.mosaic(role="list")
+    each item in items
+      - var label = typeof item === "string" ? item : item.label
+      - var note = typeof item === "string" ? "" : item.note
+      - var mark = marks[label]
+      li.mosaic__cell
+        if mark
+          span.mosaic__logo(aria-hidden="true")
+            != mark.html
+        span.mosaic__name= label
         if note
-          span.chip__note= note
+          span.mosaic__note= note
 
 mixin section(id, eyebrow, title, intro)
   section.section(id=id aria-labelledby=`${id}-titulo`)&attributes(attributes)
