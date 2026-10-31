@@ -49,7 +49,7 @@ const required = [
   "Lorenzo",
   "https://nextflow.cl",
   "TODO-confirmar-url-de-ui-lab",
-  "TODO-confirmar-url-de-biblioteca-ajedrez",
+  "https://biblioteca-ajedrez-mh.web.app/",
   "Tarjeta Vecino",
   "Casa Emprender",
   "Coraje",
@@ -94,7 +94,8 @@ const allowed = (href) =>
   href === "mailto:ma.hessalvarez@gmail.com" ||
   href === "https://www.linkedin.com/in/max-felipe-hess-alvarez-37414b1bb/" ||
   href === "https://github.com/maxhess22" ||
-  href === "https://nextflow.cl";
+  href === "https://nextflow.cl" ||
+  href === "https://biblioteca-ajedrez-mh.web.app/";
 
 for (const href of hrefs) {
   if (!allowed(href)) fail(`Enlace no permitido: ${href}`);

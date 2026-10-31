@@ -132,9 +132,9 @@ export const site = {
       summary:
         "Sitio estático de ajedrez construido con el contrato Fase Cero v2: los mismos tokens y componentes, para que la interfaz se mantenga coherente.",
       stack: ["Pug", "Fase Cero v2"],
-      todo: {
-        label: "Demo",
-        url: "https://TODO-confirmar-url-de-biblioteca-ajedrez",
+      link: {
+        label: "Ver la biblioteca",
+        url: "https://biblioteca-ajedrez-mh.web.app/",
       },
     },
   ],

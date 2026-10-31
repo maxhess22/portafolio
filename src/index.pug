@@ -89,7 +89,10 @@ html(lang="es-CL")
                   h3= project.name
                   p= project.summary
                   +chips(project.stack)
-                  +todo(project.todo.label, project.todo.url)
+                  if project.link
+                    +button-external(project.link.url, "secondary")= project.link.label
+                  else
+                    +todo(project.todo.label, project.todo.url)
 
           article.project.project--wide
             .project__body
