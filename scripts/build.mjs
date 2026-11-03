@@ -4,6 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import * as sass from "sass";
 import { jsonLd, site } from "../src/data/site.js";
+import { englishHtml, english } from "../src/data/translations.js";
 import { techMarks } from "../src/data/tech-icons.js";
 
 const require = createRequire(import.meta.url);
@@ -38,19 +39,25 @@ export async function build() {
     description: site.description,
   };
 
-  const index = render("index.pug", {
-    ...shared,
+  const spanish = render("index.pug", {
+    ...shared, locale: "es",
     title: `${site.name} · ${site.role}`,
     jsonLd: jsonLd(),
   });
-  const notFound = render("404.pug", {
-    ...shared,
+  const index = englishHtml(render("index.pug", {
+    ...shared, locale: "en",
+    title: `${site.name} · ${site.role}`,
+    jsonLd: jsonLd().replaceAll(site.role, english.get(site.role)),
+  }));
+  const notFound = englishHtml(render("404.pug", {
+    ...shared, locale: "en",
     title: `Página no encontrada · ${site.name}`,
-    description: "Esa página no está en el portafolio de Max Hess.",
+    description: "This page is not part of Max Hess’s portfolio.",
     jsonLd: "",
-  });
-
+  }));
+  await mkdir(path.join(dist, "es"), { recursive: true });
   await writeFile(path.join(dist, "index.html"), index);
+  await writeFile(path.join(dist, "es/index.html"), spanish);
   await writeFile(path.join(dist, "404.html"), notFound);
   return dist;
 }

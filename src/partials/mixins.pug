@@ -23,13 +23,6 @@ mixin text-external(href)
     block
     span.visually-hidden (se abre en una pestaña nueva)
 
-mixin todo(label, url)
-  p.todo(role="note")
-    strong.todo__mark TODO
-    span.todo__text
-      = `${label}: `
-      span.todo__url= url
-
 mixin chips(items)
   - var marks = (typeof techMarks !== "undefined" && techMarks) ? techMarks : {}
   ul.chips(role="list")
@@ -42,27 +35,25 @@ mixin chips(items)
             != mark.html
         span.chip__label= label
 
-mixin mosaic(items)
-  - var marks = (typeof techMarks !== "undefined" && techMarks) ? techMarks : {}
-  ul.mosaic(role="list")
-    each item in items
-      - var label = typeof item === "string" ? item : item.label
-      - var note = typeof item === "string" ? "" : item.note
-      - var mark = marks[label]
-      li.mosaic__cell
-        if mark
-          span.mosaic__logo(aria-hidden="true")
-            != mark.html
-        span.mosaic__name= label
-        if note
-          span.mosaic__note= note
-
 mixin section(id, eyebrow, title, intro)
   section.section(id=id aria-labelledby=`${id}-titulo`)&attributes(attributes)
     .container
       header.section__header
-        p.eyebrow= eyebrow
+        if eyebrow
+          p.eyebrow= eyebrow
         h2(id=`${id}-titulo`)= title
         if intro
           p.section__intro= intro
       block
+
+// Iconos del explorador, dibujados con el color semántico del componente.
+mixin explorer-icon(kind)
+  svg.explorer-icon(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false")
+    if kind === "folder"
+      path(d="M3 7V5a1 1 0 0 1 1-1h5l2 3h9a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7Z")
+    else if kind === "chevron"
+      path(d="m9 5 7 7-7 7")
+    else if kind === "collapse"
+      path(d="m8 4 4 4 4-4M8 20l4-4 4 4M4 12h16")
+    else if kind === "expand"
+      path(d="m8 8 4-4 4 4M8 16l4 4 4-4M4 12h16")

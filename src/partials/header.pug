@@ -1,15 +1,11 @@
-header.site-header
-  .container.site-header__bar
-    a.visually-hidden(href="/#inicio") Inicio
-    .header-tools
-      button.nav-toggle(type="button" data-nav-toggle aria-expanded="false" aria-controls="navegacion")
-        span.nav-toggle__icon(aria-hidden="true")
-          span
-          span
-          span
-        span(data-nav-label) Menú
-    nav#navegacion.nav-panel(data-nav-panel aria-label="Secciones")
-      ul(role="list")
-        each item in nav
-          li
-            a(href=item.href)= item.label
+header.workspace-header
+  nav.workspace-header__actions(aria-label="Acciones del portafolio")
+    a.workspace-header__download(href=cvPath download=cvFilename)
+      span(aria-hidden="true") ↓
+      span Descargar CV
+    button.workspace-terminal-launch(type="button" data-terminal-open aria-haspopup="dialog" aria-controls="terminal-modal")
+      span(aria-hidden="true") >_
+      span Abrir consola
+    .language-switch(role="group" aria-label="Idioma")
+      a(href="/" lang="en" hreflang="en" data-language="en" aria-label="English" aria-current=locale === "en" ? "true" : undefined) EN
+      a(href="/es/" lang="es" hreflang="es" data-language="es" aria-label="Español" aria-current=locale === "es" ? "true" : undefined) ES

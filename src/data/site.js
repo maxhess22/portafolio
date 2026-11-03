@@ -9,8 +9,6 @@ export const site = {
   cvFilename: "CV_Max_Hess_Fullstack.pdf",
   description:
     "Portafolio de Max Hess, ingeniero de software fullstack en Santiago. Sistemas en producción, plataformas municipales y NEXTFLOW.",
-  value:
-    "Llevo software a producción, del requerimiento al despliegue, y me quedo cuando la gente ya lo está usando.",
   portrait: {
     src: "/img/perfil.jpg",
     width: 720,
@@ -18,7 +16,7 @@ export const site = {
     alt: "Retrato de Max Hess sonriendo, con camisa blanca y corbata negra.",
   },
   nav: [
-    { href: "/#historia", id: "historia", label: "Historia" },
+    { href: "/#sobre-mi", id: "sobre-mi", label: "Sobre mí" },
     { href: "/#experiencia", id: "experiencia", label: "Experiencia" },
     { href: "/#proyectos", id: "proyectos", label: "Proyectos" },
     { href: "/#tecnologias", id: "tecnologias", label: "Tecnologías" },
@@ -26,65 +24,67 @@ export const site = {
   ],
   story: {
     paragraphs: [
-      "Desde chico tuve curiosidad por cómo funciona la tecnología. Me encantaban los computadores y los videojuegos, y quería entender cómo funcionaban.",
-      "En octavo básico formateé mi primer computador. Abrí el problema, seguí lo que iba descubriendo y la máquina volvió a partir. Ahí se me quedó la maña.",
-      "Estudié Ingeniería Informática en Duoc UC, entre 2020 y 2023. Ahí puse esa curiosidad en calidad de software, modelos de datos y desarrollo.",
+      "Soy ingeniero de software fullstack, enfocado en optimizar procesos y resolver problemas que aporten valor al negocio. Me involucro en las conversaciones con clientes y usuarios para entender sus necesidades, definir requerimientos y comunicar qué es viable, qué limitaciones existen y qué alternativas podemos construir en equipo.",
+      "Soy autodidacta y mantengo un aprendizaje constante: investigo, pregunto y reconozco cuando necesito profundizar antes de proponer una solución. Integro inteligencia artificial en mi trabajo con criterio, revisando sus resultados y manteniendo la responsabilidad sobre las decisiones técnicas.",
+      "Fuera del desarrollo, mi principal pasatiempo es el ajedrez. Disfruto estudiar libros y entrenar, con la intención de construir una práctica diaria y disciplinada.",
     ],
-    quote:
-      "Me apasiona la inteligencia artificial porque ahora tenemos todo el conocimiento en la palma de la mano.",
-    after: [
-      "Con eso aprendo más rápido y contrasto mejor lo que estoy construyendo. El criterio de qué problema vale la pena resolver sigue siendo mío.",
-      "Juego ajedrez. Me gusta pensar la jugada que viene, no solo la que tengo enfrente.",
-      "En el trabajo me pasa lo mismo con el software: me importa llegar a producción y quedarme cuando alguien ya lo está usando. Por eso NEXTFLOW, mi propia plataforma, es el proyecto del que más orgulloso estoy. Con él ese oficio también puede generar ingresos.",
-    ],
-    facts: [
-      {
-        label: "Formación",
-        value: "Ingeniería Informática, Duoc UC, 2020–2023",
-      },
-      {
-        label: "Especialidad",
-        value: "Calidad de software, modelos de datos y desarrollo de software",
-      },
-      { label: "Idioma", value: "Español nativo · inglés intermedio" },
-      { label: "Fuera del editor", value: "Ajedrez" },
-    ],
+
   },
   experienceIntro:
     "Tres lugares donde el software ya lo usa alguien: la municipalidad, el hospital y un estudio.",
   experience: [
     {
+      id: "experiencia-cofodep",
       role: "Ingeniero de Software",
       org: "Corporación Municipal de Fomento de La Florida (Cofodep)",
+      shortName: "Cofodep",
+      file: "cofodep.md",
+      summary: "Creo proyectos de innovación de punta a punta, modernizo plataformas comunitarias y automatizo flujos de trabajo.",
+      highlights: [
+        "Creación de nuevos proyectos de innovación de punta a punta y definición de hitos.",
+        "De PHP legacy a aplicaciones SPA con APIs en Go y despliegues en Google Cloud.",
+        "Automatización de procesos, estandarización del flujo de trabajo y documentación técnica.",
+        "Encargado de un desarrollador en práctica durante 3 meses: formación en buenas prácticas y flujo de trabajo hasta ser un desarrollador funcional.",
+      ],
       start: "2026-02",
       startLabel: "Febrero 2026",
       endLabel: "Actualidad",
       current: true,
       points: [
-        "Lideré la modernización de plataformas legacy en PHP, entre ellas Tarjeta Vecino, Casa Emprender y Coraje. Los flujos críticos pasaron a aplicaciones SPA con APIs RESTful en Go y autenticación JWT.",
+        "Participé activamente en la creación de nuevos proyectos de innovación de punta a punta, definiendo hitos, requerimientos y entregas junto a las áreas de la corporación.",
+        "Lideré la modernización de plataformas legacy en PHP, entre ellas Tarjeta Vecino, Casa Emprender, Coraje y TeCuidoApp. Los flujos críticos pasaron a aplicaciones SPA con APIs RESTful en Go y autenticación JWT.",
+        "Automaticé procesos y estandaricé el flujo de trabajo de desarrollo, elaborando documentación técnica y operativa para el equipo.",
         "Migré la infraestructura y los despliegues a Google Cloud Platform, y llevé la negociación técnica y la implementación de los requerimientos de punta a punta.",
         "Limpié, mapeé y migré datos legacy en MySQL con Pentaho Data Integration, cuidando las conexiones y la integridad de las transacciones en los despliegues nuevos.",
-        "Mentoricé a un desarrollador en práctica durante tres meses: armé su plan de capacitación y lo dejé trabajando con autonomía.",
+        "Fui encargado de un desarrollador en práctica durante tres meses: estructuré su formación en buenas prácticas y flujo de trabajo hasta consolidarlo como un desarrollador funcional y autónomo.",
       ],
     },
     {
       role: "Ingeniero de Software",
       org: "Hospital San Juan de Dios",
+      shortName: "Hospital San Juan de Dios",
+      file: "hospital.md",
+      summary: "Desarrollo y soporte de sistemas clínicos y administrativos, en contacto directo con el personal médico.",
+      highlights: ["De 9 clics a 1 para solicitar una ambulancia.", "Funcionalidades a medida para Ambulatorio y Hospitalizados.", "Resolución y seguimiento de incidentes L2 y L3."],
       start: "2023-07",
       end: "2025-11",
       startLabel: "Julio 2023",
       endLabel: "Noviembre 2025",
       current: false,
       points: [
-        "Di soporte L2 y L3 en producción a cada software que lancé: atendí a quienes lo usaban, resolví el incidente y busqué la causa raíz.",
+        "Di soporte L2 y L3 a Ambulatorio, Hospitalizados y Movilización: recibí llamadas y atendí directamente a médicos y usuarios, resolviendo incidentes y buscando su causa raíz.",
         "Rediseñé el flujo de solicitudes de ambulancia. La operación bajó de 9 clics a 1, y los coordinadores respondieron en menos tiempo.",
-        "Desarrollé y mantuve plataformas web en arquitectura MVC, con JavaScript y MySQL, para el día a día del personal médico.",
+        "Desarrollé funcionalidades a medida y colaboré en mejoras de Ambulatorio y Hospitalizados, respondiendo a solicitudes del personal médico con Laravel, JavaScript y MySQL.",
         "Llevé el ciclo de ingeniería de requerimientos de punta a punta, dentro de la red interna del hospital: necesidades clínicas y administrativas, entregas iterativas y despliegue.",
       ],
     },
     {
       role: "Desarrollador Web",
       org: "Arcadius Entertainment",
+      shortName: "Arcadius",
+      file: "arcadius.md",
+      summary: "Desarrollo de plataformas web e infraestructura para un estudio de entretenimiento.",
+      highlights: ["Integración de WordPress y React.", "Administración de servicios en Microsoft Azure."],
       start: "2023-01",
       end: "2023-05",
       startLabel: "Enero 2023",
@@ -98,10 +98,12 @@ export const site = {
   ],
   projectsIntro: "Lo que estoy construyendo ahora, y los sistemas que dejé en producción.",
   featured: {
+    id: "proyecto-nextflow",
+    folder: "nextflow",
     eyebrow: "Producto propio",
     name: "NEXTFLOW",
     summary:
-      "Plataforma SaaS para tiendas. Es el producto del que más orgulloso estoy, porque con él puedo generar ingresos.",
+      "Plataforma SaaS para gestionar tiendas, pedidos y despachos desde un solo lugar.",
     points: [
       "Clientes, inventario y pedidos.",
       "Rutas de despacho con mapa de cobertura.",
@@ -118,20 +120,49 @@ export const site = {
   },
   projects: [
     {
-      name: "UI Lab Fase Cero",
+      id: "proyecto-hospital",
+      folder: "hospital-san-juan-de-dios",
+      eyebrow: "Experiencia profesional · Salud",
+      name: "Hospital San Juan de Dios",
       summary:
-        "Sistema de diseño con tokens semánticos, primitivas de interfaz y reglas para que un agente de IA programe pantallas consistentes. Está hecho con SvelteKit y Tailwind.",
-      stack: ["SvelteKit", "Tailwind"],
-      todo: {
-        label: "Demo",
-        url: "https://TODO-confirmar-url-de-ui-lab",
+        "Desarrollo a medida y soporte directo al personal médico en sistemas clínicos y administrativos.",
+      result: {
+        before: "9",
+        after: "1",
+        label: "clic para solicitar una ambulancia",
       },
+      items: [
+        {
+          name: "Movilización",
+          summary: "Renovación completa del sistema, optimización de solicitudes de ambulancia y soporte a usuarios.",
+        },
+        {
+          name: "Ambulatorio y Hospitalizados",
+          summary: "Desarrollo y colaboración en funcionalidades a medida, según solicitudes de los usuarios, y documentación técnica.",
+        },
+        {
+          name: "Clima Laboral",
+          summary: "Cambios y documentación del sistema.",
+        },
+      ],
+      stack: ["Laravel", "JavaScript", "MySQL"],
+      architecture: "Frontend (JS) ──> Backend MVC (Laravel) ──> MySQL (Red interna)",
+      note: "Sistemas internos del hospital.",
+      support: "Soporte a Ambulatorio, Hospitalizados y Movilización: atención telefónica y directa a médicos y usuarios, resolución de incidentes y seguimiento de solicitudes.",
     },
     {
+      id: "proyecto-ajedrez",
+      folder: "biblioteca-ajedrez",
+      eyebrow: "Proyecto personal",
       name: "Biblioteca de Ajedrez",
       summary:
-        "Sitio estático de ajedrez construido con el contrato Fase Cero v2: los mismos tokens y componentes, para que la interfaz se mantenga coherente.",
-      stack: ["Pug", "Fase Cero v2"],
+        "Recursos de estudio y entrenamiento para seguir mejorando en ajedrez.",
+      points: [
+        "Guías de estudio y libros digitalizados de ajedrez.",
+        "Entrenamientos para jugar ajedrez a la ciega.",
+        "Más recursos para aprender y practicar.",
+      ],
+      stack: ["Pug"],
       link: {
         label: "Ver la biblioteca",
         url: "https://biblioteca-ajedrez-mh.web.app/",
@@ -139,65 +170,81 @@ export const site = {
     },
   ],
   municipal: {
+    id: "proyecto-municipal",
+    folder: "sistemas-municipales",
+    eyebrow: "Experiencia profesional · La Florida",
     name: "Sistemas municipales",
     summary:
-      "En la Corporación Municipal de Fomento de La Florida modernicé tres sistemas comunitarios. Salieron de PHP legacy hacia aplicaciones SPA, con APIs RESTful en Go y autenticación JWT.",
-    note: "Sin enlace público. Son sistemas de la corporación.",
+      "Creación y modernización de plataformas comunitarias: de PHP legacy a aplicaciones SPA con APIs en Go.",
+    stack: ["Vue", "Go", "MySQL"],
+    architecture: "SPA (Vue) ──JWT──> API REST (Go) ──> MySQL (ETL Pentaho · GCP)",
+    note: "Sin enlace público en los demás sistemas internos de la corporación.",
+    support: "Creación de nuevos proyectos de innovación de punta a punta con definición de hitos, automatización y documentación del flujo de trabajo, y formación durante 3 meses de un desarrollador en práctica en buenas prácticas hasta convertirlo en un desarrollador funcional.",
     items: [
+      {
+        name: "TeCuidoApp",
+        link: {
+          label: "tecuidoapp.fomentolf.cl",
+          url: "https://tecuidoapp.fomentolf.cl/",
+        },
+        summary:
+          "Identificación y localización de adultos mayores o personas con condiciones cognitivas mediante colgantes NFC/QR.",
+      },
       {
         name: "Tarjeta Vecino",
         summary:
-          "Credencial de beneficios para residentes de La Florida, con convenios y descuentos en la comuna.",
+          "Beneficios y descuentos para residentes.",
       },
       {
         name: "Casa Emprender",
         summary:
-          "Espacio de la corporación para emprender: capacitación, mentorías y trabajo.",
+          "Capacitación y apoyo al emprendimiento.",
       },
       {
         name: "Coraje",
-        summary: "Registro e identificación de mascotas de la comuna.",
+        summary: "Registro e identificación de mascotas.",
       },
     ],
   },
-  techIntro: "Agrupadas por oficio. AWS está en aprendizaje.",
   technologies: [
     {
-      name: "Lenguajes",
-      items: ["Go", "PHP", "Python", "JavaScript"],
-    },
-    {
-      name: "Interfaz",
-      items: ["React", "Vue", "SvelteKit", "Tailwind", "Bootstrap", "jQuery", "DataTables"],
-    },
-    {
-      name: "CMS",
-      items: ["WordPress"],
-    },
-    {
-      name: "Backend",
-      items: ["Laravel", "Slim", "Django", "FastAPI", "Gin"],
-    },
-    {
-      name: "Datos",
-      items: ["MySQL"],
-    },
-    {
-      name: "Nube",
-      items: [
-        { label: "GCP" },
-        { label: "Azure" },
-        { label: "AWS", note: "en aprendizaje" },
-        { label: "Firebase" },
+      name: "Producto e interfaz",
+      tab: { label: "frontend.ts", lang: "TS" },
+      description: "Experiencias web para las personas que usan el sistema cada día.",
+      case: { label: "Ver NEXTFLOW", href: "#proyecto-nextflow" },
+      primary: [
+        { label: "Vue", context: "SPAs municipales" },
+        { label: "React", context: "NEXTFLOW" },
       ],
+      secondary: ["JavaScript", "SvelteKit", "Tailwind", "Bootstrap", "jQuery", "DataTables", "WordPress"],
     },
     {
-      name: "Herramientas",
-      items: ["Git", "GitHub Actions", "Pentaho"],
+      name: "Servicios y datos",
+      tab: { label: "backend.go", lang: "GO" },
+      description: "APIs, reglas de negocio y datos que sostienen la operación.",
+      case: { label: "Ver sistemas municipales", href: "#proyecto-municipal" },
+      primary: [
+        { label: "Go", context: "APIs municipales" },
+        { label: "Laravel", context: "Hospital San Juan de Dios" },
+      ],
+      secondary: ["MySQL", "Python", "Slim", "Django", "FastAPI", "Gin", "Pentaho"],
+    },
+    {
+      name: "Entrega y operación",
+      tab: { label: "deploy.yml", lang: "YML" },
+      description: "Infraestructura, despliegues y herramientas para mantener el software funcionando.",
+      case: { label: "Ver experiencia en Cofodep", href: "#experiencia-cofodep" },
+      primary: [
+        { label: "GCP", context: "Infraestructura" },
+        { label: "Firebase", context: "Hosting NEXTFLOW" },
+        { label: "GitHub Actions", context: "Automatización" },
+      ],
+      secondary: ["Azure", "Git"],
+      learning: "AWS",
     },
   ],
   contactIntro:
-    "Si estás armando un equipo o quieres hablar de un sistema en producción, escríbeme.",
+    "Conversemos sobre los desafíos del proyecto y cómo puedo aportar.",
 };
 
 export function jsonLd() {

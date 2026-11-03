@@ -16,7 +16,7 @@ body {
   line-height: var(--leading-body);
 }
 
-body.has-nav-open {
+body.has-terminal-open {
   overflow: hidden;
 }
 
@@ -153,12 +153,7 @@ a {
   .btn,
   .chip,
   .chip__mark,
-  .project,
-  .role,
-  .facts,
-  .todo,
-  .system,
-  .nav-toggle {
+  .tech-primary__item {
     border: var(--border-width) solid CanvasText;
   }
 }

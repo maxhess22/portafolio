@@ -4,17 +4,3 @@ footer.site-footer
       | © 
       span(data-year)= year
       |  #{name}. Santiago, Chile.
-    nav(aria-label="Contacto")
-      ul.cluster(role="list")
-        li
-          a(href=`mailto:${email}`)
-            | Correo
-            span.visually-hidden= ` ${email}`
-        li
-          +text-external(linkedin)
-            | LinkedIn
-        li
-          +text-external(github)
-            | GitHub
-        li
-          a(href=cvPath download=cvFilename) Descargar CV

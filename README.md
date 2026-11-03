@@ -30,6 +30,14 @@ El puerto se puede cambiar con la variable `PORT`.
 
 ## Diseño
 
+La navegación principal es el explorador de archivos, sin navbar duplicado. Incluye perfil, biografía, foto, experiencia, proyectos, la carpeta `skills` con `frontend.ts`, `backend.go` y `deploy.yml`, y contacto. La cabecera muestra nombre, cargo y el selector EN/ES. Inglés es la versión inicial (`/`); español está en `/es/`. El idioma se cambia conservando el archivo abierto. Los nombres de archivo usan inglés en ambos idiomas.
+
+La terminal opera sobre esos mismos archivos: `ls [ruta]`, `cd [carpeta]`, `pwd`, `cat archivo`, `nano archivo`, `help`, `clear` y `exit` (cerrar la terminal). Incluye historial con flechas y autocompletado con Tab de comandos y rutas por nivel, con opciones cuando hay varias coincidencias y solo carpetas para `cd`. Shift+Tab permite salir del campo. `nano` abre un lector de solo lectura con salida por botón, Escape o Ctrl+X. No ejecuta comandos del sistema ni modifica archivos.
+
+Las traducciones se mantienen en `src/data/translations.js`, preservando el contenido editorial en español. El build genera las dos versiones estáticas, con `lang`, metadatos y enlaces de idioma. Los documentos comparten los tokens `--editor-padding` y `--editor-gap`.
+
+El editor principal usa un árbol de archivos de `portafolio/`: `perfil.ts`, `sobre-mi.md`, `max.jpg` y las carpetas `experiencia/` y `proyectos/`, con un archivo por empresa o proyecto. El árbol queda a la izquierda en escritorio y se abre desde «Explorar archivos» en móvil. La cabecera muestra la ruta del archivo abierto y el menú abre directamente cada contenido.
+
 La paleta, la tipografía y la composición salen del portafolio de 2023 y están escritas como tokens en `src/styles/tokens.scss`. Los componentes solo consumen esos tokens.
 
 - Fondo `#172c3f`, franjas y tarjetas `#4f6378`. El negro `#0a151f` queda solo en el menú y el pie. Las subtarjetas usan un slate más oscuro, `#3f5366`, con un borde suave. El acento es el blanco hueso `#eae4d8`.
@@ -38,21 +46,21 @@ La paleta, la tipografía y la composición salen del portafolio de 2023 y está
 - En escritorio la lectura sigue un eje izquierdo y cierra a la derecha: el texto principal va a la izquierda; la foto, la ficha de formación, las fechas y las tarjetas secundarias van a la derecha. Los llamados a la acción quedan al final de ese recorrido. En móvil todo es una columna, alineada a la izquierda.
 - La foto del hero es cuadrada, de unos 320 px, con esquinas de 16 px, borde claro y sombra para separarla del navy.
 - Las tarjetas de proyecto usan el mismo radio, el mismo fondo y los mismos botones con borde claro.
-- Cada tecnología muestra el logo oficial de Devicon (MIT, `src/icons/LICENSE-devicon.txt`), a todo color y sin placa. Si esa tinta no se lee sobre el slate, el logo pasa a blanco hueso. Slim, Gin y Pentaho no tienen símbolo ahí y usan un monograma en hueso.
+- El stack principal muestra logos oficiales de Devicon (MIT, `src/icons/LICENSE-devicon.txt`) y contexto de uso real. Las tecnologías complementarias aparecen como una lista editorial, con menos peso visual.
 - El pie tiene el fondo más oscuro y las esquinas superiores redondeadas.
 
 No hay tema claro. Ese diseño era una sola paleta oscura, y un interruptor de tema la partía. El texto editable está en `src/data/site.js`.
 
 ## Firebase Hosting
 
-El proyecto de Firebase todavía no existe. El id `TODO-firebase-project-id` es un placeholder.
+El proyecto de Firebase es `maxhess-portafolio` (`https://maxhess-portafolio.web.app`).
 
-1. Crea un proyecto en [Firebase console](https://console.firebase.google.com/) y activa Hosting.
-2. Reemplaza `TODO-firebase-project-id` en `.firebaserc` y en `.github/workflows/firebase-hosting.yml` (`projectId`).
-3. Crea una cuenta de servicio con permiso para desplegar Hosting. La forma más directa es, en tu máquina, `firebase init hosting:github` dentro de este repo: el asistente crea la cuenta y el secreto. También puedes crear la clave JSON a mano en Google Cloud, con un rol que permita administrar Firebase Hosting.
-4. En GitHub, en Settings → Secrets and variables → Actions, crea el secreto `FIREBASE_SERVICE_ACCOUNT_<ID>`. El sufijo es el id del proyecto en mayúsculas, con cada carácter que no sea letra o número convertido en `_`. Mientras siga el placeholder, el secreto se llama `FIREBASE_SERVICE_ACCOUNT_TODO_FIREBASE_PROJECT_ID` y su valor es el JSON completo de la cuenta de servicio.
-5. Si cambias el id del proyecto, cambia también el nombre del secreto y la referencia `secrets.FIREBASE_SERVICE_ACCOUNT_...` del workflow.
-6. Cada push a `main` instala dependencias, corre `npm run check` y despliega el canal **live** con `FirebaseExtended/action-hosting-deploy`.
+1. La configuración está vinculada en `.firebaserc` y en `.github/workflows/firebase-hosting.yml` (`projectId: maxhess-portafolio`).
+2. Para el despliegue manual desde tu máquina: `npm run build && firebase deploy --only hosting`.
+3. Para el despliegue continuo mediante GitHub Actions:
+   - En GitHub, en Settings → Secrets and variables → Actions, crea el secreto `FIREBASE_SERVICE_ACCOUNT_MAXHESS_PORTAFOLIO`.
+   - Su valor es el JSON de la cuenta de servicio de Google Cloud con permisos de Firebase Hosting.
+4. Cada push a `main` instala dependencias, corre `npm run check` y despliega el canal **live** con `FirebaseExtended/action-hosting-deploy`.
 
 `firebase.json` publica `dist/`, usa `cleanUrls` y define caché corta para HTML, de una hora para CSS y JS, y más larga para imágenes, fuentes y el PDF.
 

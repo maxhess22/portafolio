@@ -5,133 +5,342 @@ html(lang="es-CL")
   include partials/head.pug
   body
     a.skip(href="#contenido") Saltar al contenido
-    include partials/header.pug
     main#contenido(tabindex="-1")
       section.hero#inicio(aria-labelledby="inicio-titulo")
         .container.hero__grid
           .hero__intro
-            p.eyebrow= location
-            h1#inicio-titulo= name
-          .portrait-frame
-            img.portrait(
-              src=portrait.src
-              width=portrait.width
-              height=portrait.height
-              alt=portrait.alt
-              fetchpriority="high"
-            )
-          .hero__copy
-            p.hero__role
-              span= role
-              span.hero__caret(aria-hidden="true")
-            p.hero__value= value
-            .actions
-              +button("/#proyectos", "primary")
-                | Proyectos
-              +button(cvPath, "secondary")(download=cvFilename)
-                | Descargar CV
-              +button("/#contacto", "secondary")
-                | Contacto
-
-      +section("historia", "Sobre mí", "Mi historia")
-        .grid-2
-          .prose
-            each paragraph in story.paragraphs
-              p= paragraph
-            blockquote.pullquote
-              p= story.quote
-            each paragraph in story.after
-              p= paragraph
-          dl.facts
-            each fact in story.facts
-              div
-                dt= fact.label
-                dd= fact.value
-
-      +section("experiencia", "Trayectoria", "Experiencia", experienceIntro)
-        ol.timeline(role="list")
-          each job in experience
-            li.role(class=job.current ? "role--current" : undefined)
-              div
-                p.role__when
-                  time(datetime=job.start)= job.startLabel
-                  |  – 
-                  if job.end
-                    time(datetime=job.end)= job.endLabel
-                  else
-                    = job.endLabel
-              div.stack
-                h3= job.role
-                p.role__org= job.org
-                ul.points(role="list")
-                  each point in job.points
-                    li= point
-
-      +section("proyectos", "Ahora", "Proyectos", projectsIntro)
-        .project-list
-          article.project.project--featured
-            .project__body
-              p.eyebrow= featured.eyebrow
-              h3= featured.name
-              p= featured.summary
-              ul.points(role="list")
-                each point in featured.points
-                  li= point
-              p= featured.note
-            .project__aside
-              +chips(featured.stack)
-              +button-external(featured.link.url, "primary")= featured.link.label
-
-          .project-list__aside
-            each project in projects
-              article.project
-                .project__body
-                  h3= project.name
-                  p= project.summary
-                  +chips(project.stack)
-                  if project.link
-                    +button-external(project.link.url, "secondary")= project.link.label
-                  else
-                    +todo(project.todo.label, project.todo.url)
-
-          article.project.project--wide
-            .project__body
-              h3= municipal.name
-              p= municipal.summary
-              .systems
-                each item in municipal.items
-                  div.system
-                    h4= item.name
-                    p= item.summary
-              p.note= municipal.note
-
-      +section("tecnologias", "Oficio", "Tecnologías", techIntro)(class="section--band")
-        -
-          var techSpan = {
-            Lenguajes: 6,
-            Interfaz: 6,
-            CMS: 4,
-            Backend: 8,
-            Datos: 4,
-            Nube: 8,
-            Herramientas: 12
-          }
-        .tech-list
-          each group in technologies
-            section.tech-group(aria-labelledby=`tech-${group.name}` style=`--span:${techSpan[group.name] || 4}`)
-              h3(id=`tech-${group.name}`)= group.name
-              +mosaic(group.items)
-
-      +section("contacto", "Hablemos", "Contacto", contactIntro)
-        .contact
-          a.contact-email(href=`mailto:${email}`)= email
-          .actions
-            +button(cvPath, "primary")(download=cvFilename)
-              | Descargar CV
-            +button-external(linkedin, "secondary")
-              | LinkedIn
-            +button-external(github, "secondary")
-              | GitHub
+            - var nameCode = JSON.stringify(name) + ","
+            - var roleCode = JSON.stringify(role) + ","
+            h1#inicio-titulo.visually-hidden= name + " · " + role
+            - var repos = [featured, municipal, ...projects]
+            - var projectFiles = ["nextflow.md", "municipal.md", "hospital.md", "chess.md"]
+            .hero__editor
+              include partials/header.pug
+              .profile-workspace
+                details.profile-explorer(data-profile-explorer open)
+                  summary Explorar archivos
+                  nav.profile-tree(aria-label="Archivos del portafolio")
+                    .profile-tree__header
+                      p.profile-tree__label Explorador
+                      button.profile-tree__toggle(type="button" data-folders-toggle data-state="collapse" aria-label="Contraer carpetas" title="Contraer carpetas")
+                        span.profile-tree__toggle-icon.profile-tree__toggle-icon--collapse
+                          +explorer-icon("collapse")
+                        span.profile-tree__toggle-icon.profile-tree__toggle-icon--expand
+                          +explorer-icon("expand")
+                    p.profile-tree__root
+                      +explorer-icon("folder")
+                      | portfolio
+                    details.profile-folder(open)
+                      summary
+                        span.profile-folder__chevron
+                          +explorer-icon("chevron")
+                        span.profile-folder__icon
+                          +explorer-icon("folder")
+                        | experience
+                      .profile-folder__files
+                        each job, index in experience
+                          button.profile-file(id=index === 0 ? "tab-experiencia" : `archivo-empresa-${index}` type="button" aria-controls="experiencia" aria-pressed="false" data-editor-tab data-workspace-company=index data-file=`experience/${job.file}`)
+                            span.profile-file__type(data-kind="md" aria-hidden="true") MD
+                            = job.file
+                    details.profile-folder(open)
+                      summary
+                        span.profile-folder__chevron
+                          +explorer-icon("chevron")
+                        span.profile-folder__icon
+                          +explorer-icon("folder")
+                        | projects
+                      .profile-folder__files
+                        each project, index in repos
+                          button.profile-file(id=`archivo-proyecto-${index}` type="button" aria-controls="proyectos" aria-pressed="false" data-editor-tab data-workspace-project=project.id data-file=`projects/${projectFiles[index]}`)
+                            span.profile-file__type(data-kind="md" aria-hidden="true") MD
+                            = projectFiles[index]
+                    details.profile-folder
+                      summary
+                        span.profile-folder__chevron
+                          +explorer-icon("chevron")
+                        span.profile-folder__icon
+                          +explorer-icon("folder")
+                        | skills
+                      .profile-folder__files
+                        each group, index in technologies
+                          button.profile-file(id=`archivo-skills-${index}` type="button" aria-controls="tecnologias" aria-pressed="false" data-editor-tab data-tech-tab data-workspace-skill=index data-file=`skills/${group.tab.label}`)
+                            span.profile-file__type(data-kind=group.tab.label.split(".").pop() aria-hidden="true")= group.tab.lang
+                            = group.tab.label
+                    button#tab-sobre-mi.profile-file(type="button" aria-controls="sobre-mi" aria-pressed="false" data-editor-tab data-file="about.md")
+                      span.profile-file__type(data-kind="md" aria-hidden="true") MD
+                      | about.md
+                    button#archivo-contacto.profile-file(type="button" aria-controls="contacto" aria-pressed="false" data-editor-tab data-file="contact.md")
+                      span.profile-file__type(data-kind="md" aria-hidden="true") MD
+                      | contact.md
+                    button#tab-foto.profile-file(type="button" aria-controls="foto" aria-pressed="false" data-editor-tab data-file="max.jpg")
+                      span.profile-file__type(data-kind="jpg" aria-hidden="true") JPG
+                      | max.jpg
+                    button#tab-perfil.profile-file(type="button" aria-controls="panel-perfil" aria-pressed="true" data-editor-tab data-file="profile.ts")
+                      span.profile-file__type(data-kind="ts" aria-hidden="true") TS
+                      | profile.ts
+                .profile-workspace__content
+                  .profile-workspace__tabs
+                    .profile-workspace__active-file
+                      span.profile-file__type(data-active-file-type data-kind="ts" aria-hidden="true") TS
+                      span(data-active-file-name) profile.ts
+                    span.profile-workspace__code-mark(aria-hidden="true") &lt;/&gt;
+                  .profile-workspace__path(data-profile-path aria-live="polite" aria-atomic="true") portfolio / profile.ts
+                  .hero__editor-code#panel-perfil(role="region" aria-labelledby="tab-perfil" data-editor-panel)
+                    .hero__code-row
+                      span.hero__line-number(aria-hidden="true") 01
+                      p.hero__code-comment
+                        span(aria-hidden="true") //
+                        = location
+                    .hero__code-row(aria-hidden="true")
+                      span.hero__line-number 02
+                      p.hero__code-syntax
+                        span.hero__code-keyword export const
+                        |  perfil = {
+                    .hero__code-row.hero__code-row--field
+                      span.hero__line-number(aria-hidden="true") 03
+                      p.hero__code-value(aria-hidden="true")
+                        span.hero__code-property(aria-hidden="true") nombre:
+                        span.hero__typing-box(aria-hidden="true")
+                          span.hero__reserve= nameCode
+                          span.hero__typed(data-typewriter)= nameCode
+                    .hero__code-row.hero__code-row--field
+                      span.hero__line-number(aria-hidden="true") 04
+                      p.hero__role
+                        span.hero__code-property(aria-hidden="true") rol:
+                        span.visually-hidden= role + "."
+                        span.hero__typing-box(aria-hidden="true")
+                          span.hero__reserve= roleCode
+                          span.hero__typed(data-typewriter)= roleCode
+                    .hero__code-row.hero__code-row--field
+                      span.hero__line-number(aria-hidden="true") 05
+                      p.hero__work
+                        span.hero__code-property experiencia:
+                        span "+3 años en sistemas en producción",
+                    .hero__code-row.hero__code-row--field
+                      span.hero__line-number(aria-hidden="true") 06
+                      p.hero__work
+                        span.hero__code-property stack:
+                        span ["Go", "Vue", "React", "Laravel", "GCP"],
+                    .hero__code-row.hero__code-row--field
+                      span.hero__line-number(aria-hidden="true") 07
+                      p.hero__work
+                        span.hero__code-property formacion:
+                        span "Ingeniería Informática, Duoc UC, 2020–2024",
+                    .hero__code-row.hero__code-row--field
+                      span.hero__line-number(aria-hidden="true") 08
+                      p.hero__work
+                        span.hero__code-property idioma:
+                        span "Español nativo · inglés intermedio"
+                    .hero__code-row(aria-hidden="true")
+                      span.hero__line-number 09
+                      span.hero__code-syntax };
+                  .hero__editor-photo#foto(role="region" aria-labelledby="tab-foto" data-editor-panel hidden)
+                    img.hero__editor-portrait(src=portrait.src width=portrait.width height=portrait.height alt=portrait.alt decoding="async")
+                  .hero__editor-story#sobre-mi(role="region" aria-labelledby="tab-sobre-mi" data-editor-panel hidden tabindex="0")
+                    h2.visually-hidden Sobre mí
+                    .story-document__body
+                      .story-document__chapters
+                        each paragraph in story.paragraphs
+                          p= paragraph
+                      .workspace-next(data-workspace-nav)
+                        a.workspace-next__link(href="#experiencia-cofodep")
+                          span Siguiente:
+                          code experience/cofodep.md
+                          span(aria-hidden="true") →
+                  .experience-browser#experiencia(role="region" aria-labelledby="tab-experiencia" data-editor-panel hidden)
+                    h2.visually-hidden Experiencia
+                    each job, index in experience
+                      - var nextJob = experience[index + 1]
+                      - var nextJobHref = nextJob ? `#experiencia-${nextJob.file.replace(/\.md$/, "")}` : "#proyecto-nextflow"
+                      - var nextJobFile = nextJob ? `experience/${nextJob.file}` : "projects/nextflow.md"
+                      article.experience-document(id=`empresa-${index}` data-company-panel=index hidden=index !== 0 aria-labelledby=`empresa-titulo-${index}`)
+                        .experience-document__body
+                          if job.current
+                            p.experience-document__current Actualidad
+                          h3(id=`empresa-titulo-${index}`)= job.shortName
+                          if job.org !== job.shortName
+                            p.experience-document__org= job.org
+                          p.experience-document__role= job.role
+                          p.experience-document__dates
+                            time(datetime=job.start)= job.startLabel
+                            |  — 
+                            if job.end
+                              time(datetime=job.end)= job.endLabel
+                            else
+                              = job.endLabel
+                          p.experience-document__summary= job.summary
+                          h4 Aportes principales
+                          ul.points(role="list")
+                            each highlight in job.highlights
+                              li= highlight
+                          details.experience-document__details(open)
+                            summary Ver responsabilidades completas
+                            ul.points(role="list")
+                              each point in job.points
+                                li= point
+                          .workspace-next(data-workspace-nav)
+                            a.workspace-next__link(href=nextJobHref)
+                              span Siguiente:
+                              code= nextJobFile
+                              span(aria-hidden="true") →
+                  .profile-projects#proyectos(role="region" aria-labelledby="archivo-proyecto-0" data-editor-panel hidden)
+                    h2.visually-hidden Proyectos
+                    each project, index in repos
+                      - var nextProject = repos[index + 1]
+                      - var nextProjectHref = nextProject ? `#${nextProject.id}` : "#skills-frontend"
+                      - var nextProjectFile = nextProject ? `projects/${projectFiles[index + 1]}` : "skills/frontend.ts"
+                      article.repo-document(id=project.id aria-labelledby=`repo-title-${index}` data-project-panel hidden=index !== 0)
+                        .repo-document__body(tabindex="0" role="region" aria-label=`Contenido de ${project.name}`)
+                          p.repo-document__kind= project.eyebrow
+                          h3(id=`repo-title-${index}`)= project.name
+                          p.repo-document__summary= project.summary
+                          if project.result
+                            .repo-result(aria-label=`De ${project.result.before} clics a ${project.result.after} ${project.result.label}`)
+                              p.repo-result__numbers(aria-hidden="true")
+                                span.repo-result__before= project.result.before
+                                span.repo-result__arrow →
+                                strong= project.result.after
+                              p.repo-result__label= project.result.label
+                          if project.items
+                            dl.repo-systems
+                              each item in project.items
+                                div
+                                  dt
+                                    span= item.name
+                                    if item.link
+                                      +text-external(item.link.url).repo-systems__link
+                                        = item.link.label
+                                        span(aria-hidden="true")  ↗
+                                  dd= item.summary
+                          else if project.points
+                            ul.repo-features(role="list")
+                              each point in project.points.slice(0, 3)
+                                li= point
+                          if project.support
+                            details.repo-details(open)
+                              summary= project === municipal ? "Aportes principales y liderazgo" : "Soporte y atención a usuarios"
+                              p= project.support
+                          if project.architecture
+                            .repo-architecture
+                              span.repo-architecture__label arquitectura:
+                              code.repo-architecture__flow= project.architecture
+                          .repo-document__stack
+                            +chips(project.stack)
+                          if project.link
+                            +button-external(project.link.url, "primary")= project.link.label
+                          else
+                            p.repo-document__private= project.note
+                          if project === featured
+                            details.repo-details
+                              summary Más sobre el proyecto
+                              p Panel de administración y Lorenzo, un guía con voz que enseña a usar la plataforma.
+                              p= project.note
+                          .workspace-next(data-workspace-nav)
+                            a.workspace-next__link(href=nextProjectHref)
+                              span Siguiente:
+                              code= nextProjectFile
+                              span(aria-hidden="true") →
+                  section.workspace-sheet.skills-document#tecnologias(aria-label="Tecnologías" data-editor-panel hidden)
+                    each group, index in technologies
+                      - var nextSkill = technologies[index + 1]
+                      - var nextSkillHref = nextSkill ? `#skills-${nextSkill.tab.label.replace(/\.[^.]+$/, "")}` : "#contacto"
+                      - var nextSkillFile = nextSkill ? `skills/${nextSkill.tab.label}` : "contact.md"
+                      section.tech-group(id=`tech-panel-${index}` aria-labelledby=`tech-${index}` data-tech-panel hidden=index !== 0)
+                        .tech-group__intro
+                          h2(id=`tech-${index}`)
+                            span.tech-group__marker(aria-hidden="true") #
+                            = group.name
+                          p.tech-group__description= group.description
+                          a.tech-group__case(href=group.case.href)
+                            span= group.case.label
+                            span(aria-hidden="true") ↗
+                        .tech-group__tools
+                          ul.tech-primary(role="list")
+                            each item in group.primary
+                              - var mark = techMarks[item.label]
+                              li.tech-primary__item
+                                if mark && mark.html
+                                  span.tech-primary__logo(aria-hidden="true")!= mark.html
+                                span.tech-primary__copy
+                                  strong= item.label
+                                  small= item.context
+                          if group.secondary && group.secondary.length
+                            .tech-secondary-line
+                              span.tech-secondary-line__label también:
+                              ul.tech-secondary(role="list")
+                                each item in group.secondary
+                                  li= item
+                          if group.learning
+                            p.tech-learning
+                              span.tech-learning__label aprendizaje:
+                              span= group.learning
+                          .workspace-next(data-workspace-nav)
+                            a.workspace-next__link(href=nextSkillHref)
+                              span Siguiente:
+                              code= nextSkillFile
+                              span(aria-hidden="true") →
+        
+                  section.workspace-sheet.contact-document#contacto(aria-labelledby="contacto-titulo" data-editor-panel hidden)
+                    h2#contacto-titulo
+                      span.contact-document__marker(aria-hidden="true") #
+                      | Contacto
+                    .contact-document__intro
+                      p ¿Buscas sumar un ingeniero fullstack a tu equipo?
+                      p= contactIntro
+                    dl.contact-document__links
+                      .contact-document__row.contact-document__row--email
+                        dt correo
+                        dd
+                          span.contact-document__arrow(aria-hidden="true") →
+                          a.contact-document__email(href=`mailto:${email}` data-contact-email)= email
+                          button.contact-document__copy(type="button" data-copy-email aria-label="Copiar correo" title="Copiar correo")
+                            svg.contact-document__copy-icon(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false")
+                              rect(x="8" y="8" width="12" height="13" rx="2")
+                              path(d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3")
+                            svg.contact-document__copy-check(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false")
+                              path(d="m5 12 4 4L19 6")
+                      .contact-document__row
+                        dt linkedin
+                        dd
+                          span.contact-document__arrow(aria-hidden="true") →
+                          +text-external(linkedin)
+                            | Ver perfil
+                            span(aria-hidden="true")  ↗
+                      .contact-document__row
+                        dt github
+                        dd
+                          span.contact-document__arrow(aria-hidden="true") →
+                          +text-external(github)
+                            | Ver proyectos
+                            span(aria-hidden="true")  ↗
+                    p.visually-hidden(data-copy-status role="status")
+              dialog#terminal-modal.workspace-terminal(data-terminal aria-labelledby="terminal-title")
+                .workspace-terminal__bar
+                  span.workspace-terminal__icon(aria-hidden="true") >_
+                  strong#terminal-title max@portfolio: ~/portfolio
+                  button.workspace-terminal__close(type="button" data-terminal-close aria-label="Cerrar terminal") ×
+                .workspace-terminal__body
+                  p.workspace-terminal__welcome Escribe help para ver los comandos.
+                  .workspace-terminal__output(data-terminal-output role="log" aria-live="polite" aria-relevant="additions" aria-label="Salida de la terminal")
+                  form.workspace-terminal__form(data-terminal-form)
+                    label.workspace-terminal__prompt(for="comando" data-terminal-prompt)
+                      span.workspace-terminal__user max@portfolio
+                      | :
+                      span.workspace-terminal__path ~/portfolio
+                      | $
+                    input#comando(type="text" name="command" data-terminal-input autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Comando" autofocus)
+                    button.visually-hidden(type="submit" aria-label="Ejecutar comando") ↵
+                .workspace-terminal__footer
+                  span ↑ ↓ · Tab
+                  span Esc · Cerrar
+                section.nano-reader(data-nano aria-labelledby="nano-title" hidden)
+                  .nano-reader__bar
+                    span#nano-title GNU nano · Solo lectura
+                    strong(data-nano-file)
+                  .nano-reader__content(data-nano-content tabindex="0")
+                  .nano-reader__footer
+                    button(type="button" data-nano-close) ^X Salir
+                    span Esc · Cerrar
 
     include partials/footer.pug
     script(src="/js/site.js" defer)

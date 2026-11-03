@@ -1,0 +1,110 @@
+// English copy. Spanish remains the editorial source in site.js and the templates.
+export const english = new Map([
+  ["Ingeniero de Software Fullstack", "Fullstack Software Engineer"],
+  ["Ingeniero de Software", "Software Engineer"],
+  ["Desarrollador Web", "Web Developer"],
+  ["Portafolio de Max Hess, ingeniero de software fullstack en Santiago. Sistemas en producción, plataformas municipales y NEXTFLOW.", "Max Hess’s portfolio. Fullstack software engineer in Santiago, Chile. Production systems, public services and NEXTFLOW."],
+  ["Retrato de Max Hess sonriendo, con camisa blanca y corbata negra.", "Max Hess smiling, wearing a white shirt and black tie."],
+  ["Soy ingeniero de software fullstack, enfocado en optimizar procesos y resolver problemas que aporten valor al negocio. Me involucro en las conversaciones con clientes y usuarios para entender sus necesidades, definir requerimientos y comunicar qué es viable, qué limitaciones existen y qué alternativas podemos construir en equipo.", "I am a fullstack software engineer focused on optimizing processes and solving problems that create business value. I work closely with clients and users to understand their needs, define requirements, and communicate what is feasible, what constraints exist, and what alternatives we can build as a team."],
+  ["Soy autodidacta y mantengo un aprendizaje constante: investigo, pregunto y reconozco cuando necesito profundizar antes de proponer una solución. Integro inteligencia artificial en mi trabajo con criterio, revisando sus resultados y manteniendo la responsabilidad sobre las decisiones técnicas.", "I am a self-directed learner committed to continuous learning: I research, ask questions, and acknowledge when I need to explore a topic further before proposing a solution. I use artificial intelligence thoughtfully in my work, reviewing its output and remaining responsible for technical decisions."],
+  ["Fuera del desarrollo, mi principal pasatiempo es el ajedrez. Disfruto estudiar libros y entrenar, con la intención de construir una práctica diaria y disciplinada.", "Outside software development, chess is my main hobby. I enjoy studying chess books and training, with the aim of building a disciplined daily practice."],
+
+  ["Ingeniería Informática, Duoc UC, 2020–2024", "Computer Engineering, Duoc UC, 2020–2024"],
+  ["Calidad de software, modelos de datos y desarrollo de software", "Software quality, data modeling and software development"],
+  ["Español nativo · inglés intermedio", "Native Spanish · intermediate English"],
+  ["Fuera del editor", "Outside the editor"], ["Formación", "Education"], ["Especialidad", "Focus"], ["Idioma", "Language"], ["Ajedrez", "Chess"],
+  ["Creo proyectos de innovación de punta a punta, modernizo plataformas comunitarias y automatizo flujos de trabajo.", "I build end-to-end innovation projects, modernize community platforms, and automate development workflows."],
+  ["Creación de nuevos proyectos de innovación de punta a punta y definición de hitos.", "End-to-end creation of new innovation projects and milestone definition."],
+  ["De PHP legacy a aplicaciones SPA con APIs en Go y despliegues en Google Cloud.", "From legacy PHP to single-page applications with Go APIs and Google Cloud deployments."],
+  ["Automatización de procesos, estandarización del flujo de trabajo y documentación técnica.", "Process automation, workflow standardization and technical documentation."],
+  ["Encargado de un desarrollador en práctica durante 3 meses: formación en buenas prácticas y flujo de trabajo hasta ser un desarrollador funcional.", "In charge of an intern developer for 3 months: training in best practices and workflows until becoming a functional developer."],
+  ["Participé activamente en la creación de nuevos proyectos de innovación de punta a punta, definiendo hitos, requerimientos y entregas junto a las áreas de la corporación.", "I actively participated in creating new end-to-end innovation projects, defining milestones, requirements and deliverables alongside corporation teams."],
+  ["Lideré la modernización de plataformas legacy en PHP, entre ellas Tarjeta Vecino, Casa Emprender, Coraje y TeCuidoApp. Los flujos críticos pasaron a aplicaciones SPA con APIs RESTful en Go y autenticación JWT.", "I led the modernization of legacy PHP platforms, including Tarjeta Vecino, Casa Emprender, Coraje and TeCuidoApp. Critical workflows moved to SPAs with RESTful Go APIs and JWT authentication."],
+  ["Automaticé procesos y estandaricé el flujo de trabajo de desarrollo, elaborando documentación técnica y operativa para el equipo.", "I automated processes and standardized the development workflow, creating technical and operational documentation for the team."],
+  ["Migré la infraestructura y los despliegues a Google Cloud Platform, y llevé la negociación técnica y la implementación de los requerimientos de punta a punta.", "I migrated infrastructure and deployments to Google Cloud Platform and handled technical discussions and requirements implementation end to end."],
+  ["Limpié, mapeé y migré datos legacy en MySQL con Pentaho Data Integration, cuidando las conexiones y la integridad de las transacciones en los despliegues nuevos.", "I cleaned, mapped and migrated legacy MySQL data with Pentaho Data Integration, maintaining connectivity and transaction integrity through new deployments."],
+  ["Fui encargado de un desarrollador en práctica durante tres meses: estructuré su formación en buenas prácticas y flujo de trabajo hasta consolidarlo como un desarrollador funcional y autónomo.", "I was in charge of an intern developer for three months, structuring their training in best practices and development workflows until they became a functional, independent developer."],
+  ["Desarrollo y soporte de sistemas clínicos y administrativos, en contacto directo con el personal médico.", "Development and support for clinical and administrative systems, working directly with medical staff."],
+  ["De 9 clics a 1 para solicitar una ambulancia.", "From 9 clicks to 1 to request an ambulance."],
+  ["Funcionalidades a medida para Ambulatorio y Hospitalizados.", "Custom features for outpatient and inpatient systems."],
+  ["Resolución y seguimiento de incidentes L2 y L3.", "L2 and L3 incident resolution and follow-up."],
+  ["Di soporte L2 y L3 a Ambulatorio, Hospitalizados y Movilización: recibí llamadas y atendí directamente a médicos y usuarios, resolviendo incidentes y buscando su causa raíz.", "I provided L2 and L3 support for outpatient, inpatient and transport systems, taking calls and helping doctors and users directly to resolve incidents and identify root causes."],
+  ["Rediseñé el flujo de solicitudes de ambulancia. La operación bajó de 9 clics a 1, y los coordinadores respondieron en menos tiempo.", "I redesigned the ambulance request workflow, reducing it from 9 clicks to 1 and helping coordinators respond faster."],
+  ["Desarrollé funcionalidades a medida y colaboré en mejoras de Ambulatorio y Hospitalizados, respondiendo a solicitudes del personal médico con Laravel, JavaScript y MySQL.", "I built custom features and contributed improvements to outpatient and inpatient systems, responding to medical staff requests with Laravel, JavaScript and MySQL."],
+  ["Llevé el ciclo de ingeniería de requerimientos de punta a punta, dentro de la red interna del hospital: necesidades clínicas y administrativas, entregas iterativas y despliegue.", "I managed requirements engineering end to end within the hospital network: clinical and administrative needs, iterative delivery and deployment."],
+  ["Desarrollo de plataformas web e infraestructura para un estudio de entretenimiento.", "Web platform and infrastructure development for an entertainment studio."],
+  ["Integración de WordPress y React.", "WordPress and React integration."],
+  ["Administración de servicios en Microsoft Azure.", "Microsoft Azure service administration."],
+  ["Desarrollé plataformas web integrando WordPress y React.", "I developed web platforms integrating WordPress and React."],
+  ["Administré y configuré servicios de infraestructura en Microsoft Azure.", "I managed and configured infrastructure services in Microsoft Azure."],
+  ["Febrero 2026", "February 2026"], ["Julio 2023", "July 2023"], ["Noviembre 2025", "November 2025"], ["Enero 2023", "January 2023"], ["Mayo 2023", "May 2023"], ["Actualidad", "Current"],
+  ["Plataforma SaaS para gestionar tiendas, pedidos y despachos desde un solo lugar.", "A SaaS platform for managing stores, orders and deliveries in one place."],
+  ["Clientes, inventario y pedidos.", "Customers, inventory and orders."],
+  ["Rutas de despacho con mapa de cobertura.", "Delivery routes with a coverage map."], ["Planes de suscripción.", "Subscription plans."],
+  ["Panel de administración y Lorenzo, un guía con voz que enseña a usar la plataforma.", "An administration dashboard and Lorenzo, a voice guide that teaches people how to use the platform."],
+  ["El front está hecho con React y Vite, publicado en Firebase Hosting. La API está en PHP.", "The frontend uses React and Vite, deployed on Firebase Hosting. The API is built with PHP."],
+  ["Desarrollo a medida y soporte directo al personal médico en sistemas clínicos y administrativos.", "Custom development and direct support for medical staff using clinical and administrative systems."],
+  ["De 9 clics a 1", "From 9 clicks to 1"],
+  ["clic para solicitar una ambulancia", "click to request an ambulance"],
+  ["Renovación completa del sistema, optimización de solicitudes de ambulancia y soporte a usuarios.", "A full system rebuild, streamlined ambulance requests and user support."],
+  ["Desarrollo y colaboración en funcionalidades a medida, según solicitudes de los usuarios, y documentación técnica.", "Custom feature development based on user requests, collaboration and technical documentation."],
+  ["Cambios y documentación del sistema.", "System updates and documentation."],
+  ["Sistemas internos del hospital.", "Internal hospital systems."],
+  ["Soporte a Ambulatorio, Hospitalizados y Movilización: atención telefónica y directa a médicos y usuarios, resolución de incidentes y seguimiento de solicitudes.", "Support for outpatient, inpatient and transport systems: phone and in-person help for doctors and users, incident resolution and request follow-up."],
+  ["Recursos de estudio y entrenamiento para seguir mejorando en ajedrez.", "Study and training resources to keep improving at chess."],
+  ["Guías de estudio y libros digitalizados de ajedrez.", "Study guides and digitized chess books."],
+  ["Entrenamientos para jugar ajedrez a la ciega.", "Blindfold chess training."], ["Más recursos para aprender y practicar.", "More resources for learning and practice."],
+  ["Creación y modernización de plataformas comunitarias: de PHP legacy a aplicaciones SPA con APIs en Go.", "Building and modernizing community platforms: from legacy PHP to SPAs with Go APIs."],
+  ["Aportes principales y liderazgo", "Key contributions and leadership"],
+  ["Creación de nuevos proyectos de innovación de punta a punta con definición de hitos, automatización y documentación del flujo de trabajo, y formación durante 3 meses de un desarrollador en práctica en buenas prácticas hasta convertirlo en un desarrollador funcional.", "End-to-end creation of new innovation projects with milestone definition, workflow automation and documentation, and 3-month training of an intern developer in best practices until becoming a functional developer."],
+  ["Sin enlace público en los demás sistemas internos de la corporación.", "No public link for the corporation’s other internal systems."],
+  ["Identificación y localización de adultos mayores o personas con condiciones cognitivas mediante colgantes NFC/QR.", "Identification and location support for older adults or people with cognitive conditions using NFC/QR tags."],
+  ["Beneficios y descuentos para residentes.", "Benefits and discounts for residents."], ["Capacitación y apoyo al emprendimiento.", "Entrepreneurship training and support."], ["Registro e identificación de mascotas.", "Pet registration and identification."],
+  ["Herramientas que he usado para construir, conectar y poner software en producción.", "Tools I have used to build, connect and deploy production software."],
+  ["Producto e interfaz", "Product and interface"], ["Experiencias web para las personas que usan el sistema cada día.", "Web experiences for the people who use the system every day."],
+  ["Servicios y datos", "Services and data"], ["APIs, reglas de negocio y datos que sostienen la operación.", "APIs, business rules and data that keep operations running."],
+  ["Entrega y operación", "Delivery and operations"], ["Infraestructura, despliegues y herramientas para mantener el software funcionando.", "Infrastructure, deployments and tools to keep software running."],
+  ["SPAs municipales", "Municipal SPAs"], ["APIs municipales", "Municipal APIs"], ["Infraestructura", "Infrastructure"], ["Automatización", "Automation"],
+  ["¿Buscas sumar un ingeniero fullstack a tu equipo?", "Looking for a fullstack engineer to join your team?"],
+  ["Conversemos sobre los desafíos del proyecto y cómo puedo aportar.", "Let’s talk about your project’s challenges and how I can contribute."],
+  ["Copiar correo", "Copy email"], ["Ver perfil", "View profile"], ["correo", "email"],
+  ["Saltar al contenido", "Skip to content"], ["Inicio del portafolio", "Portfolio home"], ["Archivos del portafolio", "Portfolio files"],
+  ["Explorar archivos", "Browse files"], ["Explorador", "Explorer"], ["Contraer carpetas", "Collapse folders"], ["Expandir carpetas", "Expand folders"], ["Sobre mí", "About me"], ["Experiencia", "Experience"], ["Proyectos", "Projects"], ["Tecnologías", "Skills"], ["Contacto", "Contact"],
+  ["Ver proyectos", "View projects"], ["Descargar CV", "Download CV"], ["Aportes principales", "Key contributions"], ["Ver responsabilidades completas", "View full responsibilities"],
+  ["Producto propio", "Own product"], ["Experiencia profesional · Salud", "Professional work · Healthcare"], ["Experiencia profesional · La Florida", "Professional work · La Florida"], ["Proyecto personal", "Personal project"],
+  ["Biblioteca de Ajedrez", "Chess Library"], ["Sistemas municipales", "Municipal systems"], ["Ambulatorio y Hospitalizados", "Outpatient and inpatient care"], ["Movilización", "Patient transport"], ["Clima Laboral", "Workplace climate"],
+  ["Visitar nextflow.cl", "Visit nextflow.cl"], ["Ver la biblioteca", "Visit the library"], ["Soporte y atención a usuarios", "Support and user assistance"], ["Más sobre el proyecto", "More about the project"],
+  ["Con qué construyo", "What I build with"], ["Áreas tecnológicas", "Technology areas"], ["Ver NEXTFLOW", "View NEXTFLOW"], ["Ver sistemas municipales", "View municipal systems"], ["Ver experiencia en Cofodep", "View Cofodep experience"],
+  ["también:", "also:"], ["aprendizaje:", "learning:"], ["Hablemos", "Let’s talk"], ["Correo", "Email"], ["(se abre en una pestaña nueva)", "(opens in a new tab)"],
+  ["Contenido de", "Contents of"], ["Ingeniero de", "Engineer of"],
+  ["nombre:", "name:"], ["rol:", "role:"], ["hago:", "work:"], ["experiencia:", "experience:"], ["formacion:", "education:"], ["idioma:", "language:"], ["arquitectura:", "architecture:"], ["foco:", "focus:"], ["actual:", "current:"], ["producto:", "product:"], ["contacto:", "contact:"], ["perfil =", "profile ="],
+  ["+3 años en sistemas en producción", "+3 years in production systems"],
+  ["SPA (Vue) ──JWT──> API REST (Go) ──> MySQL (ETL Pentaho · GCP)", "SPA (Vue) ──JWT──> REST API (Go) ──> MySQL (Pentaho ETL · GCP)"],
+  ["Frontend (JS) ──> Backend MVC (Laravel) ──> MySQL (Red interna)", "Frontend (JS) ──> MVC Backend (Laravel) ──> MySQL (Internal network)"],
+  ["Ver experiencia actual", "View current experience"], ["Proyecto destacado: NEXTFLOW", "Featured project: NEXTFLOW"], ["Siguiente:", "Next:"],
+  ["Escribe help para ver los comandos. También puedes usar el explorador.", "Type help for commands. You can also browse the files."],
+  ["Escribe help para ver los comandos.", "Type help for commands."],
+  ["Salida de la terminal", "Terminal output"], ["Ejecutar comando", "Run command"], ["Comando", "Command"], ["Prueba ls o nano about.md", "Try ls or nano about.md"],
+  ["Abrir consola", "Open console"], ["Cerrar terminal", "Close terminal"],
+  ["Acciones del portafolio", "Portfolio actions"],
+  ["GNU nano · Solo lectura", "GNU nano · Read only"], ["Cerrar lector", "Close reader"], ["^X Salir", "^X Exit"], ["Esc · Cerrar", "Esc · Close"],
+  ["Esta página no existe", "This page does not exist"], ["El enlace no lleva a ninguna parte del portafolio.", "This link does not lead to a page in the portfolio."], ["Volver al inicio", "Back to home"], ["Página no encontrada", "Page not found"],
+]);
+
+const pairs = [...english].sort((a, b) => b[0].length - a[0].length);
+function translateText(value) {
+  for (const [es, en] of pairs) value = value.split(es).join(en);
+  return value;
+}
+
+// Translate text and human-readable attributes, never IDs, links or scripts.
+export function englishHtml(html) {
+  return html.replace(/<script\b[\s\S]*?<\/script>|<[^>]+>|[^<]+/gi, (token) => {
+    if (/^<script\b/i.test(token)) return token;
+    if (token.startsWith("<")) {
+      return token.replace(/((?:aria-label|alt|placeholder|title|content)=")([^"]*)(")/g,
+        (_, prefix, value, suffix) => prefix + translateText(value) + suffix);
+    }
+    return translateText(token);
+  }).replace('lang="es-CL"', 'lang="en"');
+}

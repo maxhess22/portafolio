@@ -1,6 +1,8 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { site } from "../src/data/site.js";
+import { techMarks } from "../src/data/tech-icons.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
@@ -11,7 +13,8 @@ function fail(message) {
   failures.push(message);
 }
 
-const index = await readFile(path.join(dist, "index.html"), "utf8");
+const englishIndex = await readFile(path.join(dist, "index.html"), "utf8");
+const index = await readFile(path.join(dist, "es/index.html"), "utf8");
 const notFound = await readFile(path.join(dist, "404.html"), "utf8");
 const css = await readFile(path.join(dist, "css/global.css"), "utf8");
 const client = await readFile(path.join(dist, "js/site.js"), "utf8");
@@ -19,7 +22,7 @@ const components = await readFile(path.join(root, "src/styles/components.scss"),
 const layout = await readFile(path.join(root, "src/styles/layout.scss"), "utf8");
 const base = await readFile(path.join(root, "src/styles/base.scss"), "utf8");
 
-const pages = index + notFound + client;
+const pages = index + englishIndex + notFound + client;
 const banned = [
   "cafacorp",
   "hhit",
@@ -42,14 +45,17 @@ for (const term of banned) {
 
 const required = [
   "Max Hess",
+  "max.jpg",
   "Ingeniero de Software Fullstack",
-  "octavo básico",
-  "Duoc UC",
+  "optimizar procesos",
+  "Soy autodidacta",
+  "mi principal pasatiempo es el ajedrez",
   "NEXTFLOW",
   "Lorenzo",
   "https://nextflow.cl",
-  "TODO-confirmar-url-de-ui-lab",
+  "https://tecuidoapp.fomentolf.cl/",
   "https://biblioteca-ajedrez-mh.web.app/",
+  "TeCuidoApp",
   "Tarjeta Vecino",
   "Casa Emprender",
   "Coraje",
@@ -58,7 +64,6 @@ const required = [
   "Cofodep",
   "9 clics",
   "Pentaho",
-  "Fase Cero",
   "SvelteKit",
   "Vue",
   "WordPress",
@@ -76,7 +81,20 @@ for (const term of required) {
   if (!index.includes(term)) fail(`Falta en el inicio: ${term}`);
 }
 
-for (const id of ["inicio", "historia", "experiencia", "proyectos", "tecnologias", "contacto"]) {
+for (const term of ['data-profile-explorer', 'data-profile-path', 'id="tab-perfil"', 'id="tab-sobre-mi"', 'id="tab-experiencia"', 'id="panel-perfil"', 'id="sobre-mi"', 'id="experiencia"']) {
+  if (!index.includes(term)) fail(`Falta una parte del explorador de perfil: ${term}`);
+}
+if (!client.includes("selectEditorTab")) fail("Las pestañas del editor no tienen interacción");
+for (const term of ["frontend.ts", "backend.go", "deploy.yml", "data-tech-tab"]) {
+  if (!index.includes(term)) fail(`Falta una parte de las pestañas de tecnologías: ${term}`);
+}
+if (!client.includes("selectTechTab")) fail("Las pestañas de tecnologías no tienen interacción");
+
+for (const term of ["UI Lab", "Fase Cero", "TODO-confirmar-url-de-ui-lab", "2020–2023"]) {
+  if (index.includes(term)) fail(`Quedó una referencia retirada: ${term}`);
+}
+
+for (const id of ["inicio", "sobre-mi", "experiencia", "proyectos", "tecnologias", "contacto"]) {
   if (!index.includes(`id="${id}"`)) fail(`Falta el ancla #${id}`);
 }
 
@@ -85,6 +103,7 @@ const allowed = (href) =>
   href.startsWith("/#") ||
   href.startsWith("#") ||
   href === "/" ||
+  href === "/es/" ||
   href.startsWith("/cv/") ||
   href.startsWith("/css/") ||
   href.startsWith("/js/") ||
@@ -95,6 +114,7 @@ const allowed = (href) =>
   href === "https://www.linkedin.com/in/max-felipe-hess-alvarez-37414b1bb/" ||
   href === "https://github.com/maxhess22" ||
   href === "https://nextflow.cl" ||
+  href === "https://tecuidoapp.fomentolf.cl/" ||
   href === "https://biblioteca-ajedrez-mh.web.app/";
 
 for (const href of hrefs) {
@@ -133,14 +153,30 @@ for (const file of [
   }
 }
 
-if (!notFound.includes("Volver al inicio")) fail("La página 404 no vuelve al inicio");
+if (!notFound.includes("Back to home")) fail("La página 404 no vuelve al inicio");
 
 const logoCount = (index.match(/class="chip__logo"/g) || []).length;
-if (logoCount < 31) fail(`Faltan logos en los chips (${logoCount})`);
+const primaryTechItems = site.technologies.flatMap((group) => group.primary);
+const secondaryTechItems = site.technologies.flatMap((group) => group.secondary);
+const techItems = [...primaryTechItems, ...secondaryTechItems];
+const projectItems = [site.featured, site.municipal, ...site.projects].flatMap((project) => project.stack);
+const expectedLogos = [...primaryTechItems, ...projectItems].filter((item) => {
+  const label = typeof item === "string" ? item : item.label;
+  return techMarks[label]?.html;
+}).length;
+if (logoCount !== expectedLogos) fail(`Faltan logos en los chips (${logoCount} de ${expectedLogos})`);
+for (const item of techItems) {
+  const label = typeof item === "string" ? item : item.label;
+  if (!index.includes(`>${label}<`)) fail(`Falta una tecnología visible: ${label}`);
+}
 if (/cdn\.simpleicons|cdn\.jsdelivr\.net|unpkg\.com|cdn\.jsdelivr/i.test(index)) {
   fail("Los logos no pueden salir de un CDN");
 }
 
+if (!englishIndex.includes('lang="en"') || !englishIndex.includes("Fullstack Software Engineer")) fail("Falta el inglés por defecto");
+for (const marker of ["data-language", "data-terminal-input", "data-nano", "skills/frontend.ts", "skills/backend.go", "skills/deploy.yml", "contact.md"]) {
+  if (!index.includes(marker) || !englishIndex.includes(marker)) fail(`Falta la interfaz bilingüe: ${marker}`);
+}
 if (failures.length) {
   for (const message of failures) console.error(`- ${message}`);
   process.exit(1);
